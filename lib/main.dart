@@ -28,6 +28,10 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+int score = 0;
+int time = 5;
+int side_temp = -1;
+
 class _HomepageState extends State<Homepage> {
   bool addline = false;
 
@@ -35,7 +39,7 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
-          const Duration(seconds: 3),
+          Duration(seconds: time),
           () {
             setState(() {
               addline = true;
@@ -47,11 +51,19 @@ class _HomepageState extends State<Homepage> {
   CustomPainter chooseSide() {
     List<CustomPainter> list = [MyPainterLeft(), MyPainterRight()];
     final randomSide = Random();
-    return list[randomSide.nextInt(list.length)];
+    CustomPainter ans = list[randomSide.nextInt(list.length)];
+    if (ans == list[0]) {
+      side_temp = 0;
+    }
+    if (ans == list[1]) {
+      side_temp = 1;
+    }
+    return ans;
   }
 
   @override
   Widget build(BuildContext context) {
+    CustomPainter side = chooseSide();
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -69,7 +81,7 @@ class _HomepageState extends State<Homepage> {
               children: [
                 CustomPaint(
                   size: const Size(300, 300),
-                  painter: chooseSide(),
+                  painter: side,
                 ),
                 if (addline)
                   CustomPaint(
@@ -89,7 +101,17 @@ class _HomepageState extends State<Homepage> {
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (side_temp == 1) {
+                          score++;
+                          time--;
+                        }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Homepage()),
+                        );
+                      },
                       child: Container(
                         height: 50,
                         width: 100,
@@ -121,7 +143,17 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (side_temp == 0) {
+                          score++;
+                          time--;
+                        }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Homepage()),
+                        );
+                      },
                       child: Container(
                         height: 50,
                         width: 100,
@@ -153,7 +185,13 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const Homepage()),
+                        // );
+                      },
                       child: Container(
                         height: 50,
                         width: 100,
@@ -195,16 +233,6 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class ClearPage extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {}
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}
-
 class MyPainterRight extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -214,8 +242,6 @@ class MyPainterRight extends CustomPainter {
     const p4 = Offset(250, 50);
     const p5 = Offset(250, 50);
     const p6 = Offset(250, 150);
-    const p7 = Offset(250, 150);
-    const p8 = Offset(250, 300);
     final paint = Paint()
       ..color = Colors.black
       ..strokeWidth = 4
