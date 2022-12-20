@@ -102,11 +102,10 @@ class _HomepageState extends State<Homepage> {
                   buttonPadding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   children: [
-                    const SizedBox(width: 5),
-                    // SizedBox(
-                    //   height: 100,
-                    //   child: Image.asset('assets/images/left.jpg'),
-                    // ),
+                    SizedBox(
+                      height: 70,
+                      child: Image.asset('assets/images/left.png'),
+                    ),
                     TextButton(
                       onPressed: () {
                         if (side_temp == 0) {
@@ -231,11 +230,10 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 2),
-                    // SizedBox(
-                    //   height: 50,
-                    //   child: Image.asset('assets/images/right.jpg'),
-                    // ),
+                    SizedBox(
+                      height: 70,
+                      child: Image.asset('assets/images/right.png'),
+                    ),
                   ],
                 )
               ],

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'main.dart';
@@ -21,7 +23,7 @@ class _ExplanationPageState extends State<ExplanationPage> {
               const Text(
                 "On the next screen you will have to choose which side you see, left or right:",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
               ),
               Center(
                   child: Row(
@@ -29,27 +31,31 @@ class _ExplanationPageState extends State<ExplanationPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CustomPaint(
-                    painter: MyPainterLeftExplain(),
+                  SizedBox(
+                    height: 300,
+                    child: Image.asset('assets/images/leftEx.png'),
                   ),
-                  CustomPaint(
-                    painter: MyPainterRightExplain(),
-                  )
+                  const SizedBox(
+                    width: 300,
+                  ),
+                  SizedBox(
+                    height: 300,
+                    child: Image.asset('assets/images/rightEx.png'),
+                  ),
                 ],
               )),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
-                  Text(
-                    "Right side",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-                  ),
+                  SizedBox(width: 300),
                   Text(
                     "Left side",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
+                  ),
+                  SizedBox(width: 400),
+                  Text(
+                    "Right side",
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
                   ),
                 ],
               ),
@@ -62,7 +68,7 @@ class _ExplanationPageState extends State<ExplanationPage> {
                 },
                 child: Container(
                   height: 50,
-                  width: 100,
+                  width: 200,
                   decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(30),
@@ -84,7 +90,7 @@ class _ExplanationPageState extends State<ExplanationPage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -94,50 +100,50 @@ class _ExplanationPageState extends State<ExplanationPage> {
   }
 }
 
-class MyPainterLeftExplain extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    const p1 = Offset(290, -50);
-    const p2 = Offset(290, 7);
-    const p3 = Offset(290, -50);
-    const p4 = Offset(400, -50);
-    const p5 = Offset(400, 100);
-    const p6 = Offset(400, -50);
-    final paint = Paint()
-      ..color = Colors.black
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-    canvas.drawLine(p1, p2, paint);
-    canvas.drawLine(p3, p4, paint);
-    canvas.drawLine(p5, p6, paint);
-  }
+// class MyPainterLeftExplain extends CustomPainter {
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     const p1 = Offset(290, -50);
+//     const p2 = Offset(290, 7);
+//     const p3 = Offset(290, -50);
+//     const p4 = Offset(400, -50);
+//     const p5 = Offset(400, 100);
+//     const p6 = Offset(400, -50);
+//     final paint = Paint()
+//       ..color = Colors.black
+//       ..strokeWidth = 4
+//       ..strokeCap = StrokeCap.round;
+//     canvas.drawLine(p1, p2, paint);
+//     canvas.drawLine(p3, p4, paint);
+//     canvas.drawLine(p5, p6, paint);
+//   }
 
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}
+//   @override
+//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
+//     return true;
+//   }
+// }
 
-class MyPainterRightExplain extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    const p1 = Offset(-170, -50);
-    const p2 = Offset(-170, 100);
-    const p3 = Offset(-170, -50);
-    const p4 = Offset(-50, -50);
-    const p5 = Offset(-50, 7);
-    const p6 = Offset(-50, -50);
-    final paint = Paint()
-      ..color = Colors.black
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-    canvas.drawLine(p1, p2, paint);
-    canvas.drawLine(p3, p4, paint);
-    canvas.drawLine(p5, p6, paint);
-  }
+// class MyPainterRightExplain extends CustomPainter {
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     const p1 = Offset(-170, -50);
+//     const p2 = Offset(-170, 100);
+//     const p3 = Offset(-170, -50);
+//     const p4 = Offset(-50, -50);
+//     const p5 = Offset(-50, 7);
+//     const p6 = Offset(-50, -50);
+//     final paint = Paint()
+//       ..color = Colors.black
+//       ..strokeWidth = 4
+//       ..strokeCap = StrokeCap.round;
+//     canvas.drawLine(p1, p2, paint);
+//     canvas.drawLine(p3, p4, paint);
+//     canvas.drawLine(p5, p6, paint);
+//   }
 
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}
+//   @override
+//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
+//     return true;
+//   }
+// }

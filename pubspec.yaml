@@ -59,6 +59,8 @@ flutter:
   assets:
     - assets/images/right.png
     - assets/images/left.png
+    - assets/images/rightEx.png
+    - assets/images/leftEx.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
