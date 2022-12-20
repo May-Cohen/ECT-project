@@ -19,7 +19,7 @@ class _ExplanationPageState extends State<ExplanationPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "On the next screen you will have to choose which side you see left or right:",
+                "On the next screen you will have to choose which side you see, left or right:",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
               ),
@@ -97,12 +97,12 @@ class _ExplanationPageState extends State<ExplanationPage> {
 class MyPainterLeftExplain extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    const p1 = Offset(40, -50);
-    const p2 = Offset(40, 7);
-    const p3 = Offset(40, -50);
-    const p4 = Offset(160, -50);
-    const p5 = Offset(160, 100);
-    const p6 = Offset(160, -50);
+    const p1 = Offset(290, -50);
+    const p2 = Offset(290, 7);
+    const p3 = Offset(290, -50);
+    const p4 = Offset(400, -50);
+    const p5 = Offset(400, 100);
+    const p6 = Offset(400, -50);
     final paint = Paint()
       ..color = Colors.black
       ..strokeWidth = 4

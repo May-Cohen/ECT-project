@@ -74,7 +74,7 @@ class _HomepageState extends State<Homepage> {
             "Choose your answer",
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+                color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
           ),
           Center(
             child: Stack(
@@ -94,54 +94,19 @@ class _HomepageState extends State<Homepage> {
           ),
           Center(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ButtonBar(
                   alignment: MainAxisAlignment.center,
                   buttonPadding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        if (side_temp == 1) {
-                          score++;
-                          time--;
-                        }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Homepage()),
-                        );
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Right side',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
+                    const SizedBox(width: 5),
+                    // SizedBox(
+                    //   height: 100,
+                    //   child: Image.asset('assets/images/left.jpg'),
+                    // ),
                     TextButton(
                       onPressed: () {
                         if (side_temp == 0) {
@@ -155,8 +120,8 @@ class _HomepageState extends State<Homepage> {
                         );
                       },
                       child: Container(
-                        height: 50,
-                        width: 100,
+                        height: 55,
+                        width: 150,
                         decoration: BoxDecoration(
                           color: Colors.blueGrey,
                           borderRadius: BorderRadius.circular(30),
@@ -178,23 +143,24 @@ class _HomepageState extends State<Homepage> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(width: 25),
                     TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const Homepage()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Homepage()),
+                        );
                       },
                       child: Container(
-                        height: 50,
-                        width: 100,
+                        height: 55,
+                        width: 150,
                         decoration: BoxDecoration(
                           color: Colors.blueGrey,
                           borderRadius: BorderRadius.circular(30),
@@ -216,12 +182,60 @@ class _HomepageState extends State<Homepage> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(width: 25),
+                    TextButton(
+                      onPressed: () {
+                        if (side_temp == 1) {
+                          score++;
+                          time--;
+                        }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Homepage()),
+                        );
+                      },
+                      child: Container(
+                        height: 55,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.blueGrey,
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              offset: Offset(
+                                5.0,
+                                5.0,
+                              ),
+                              blurRadius: 10.0,
+                              spreadRadius: 1.0,
+                            ),
+                          ],
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Right side',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 2),
+                    // SizedBox(
+                    //   height: 50,
+                    //   child: Image.asset('assets/images/right.jpg'),
+                    // ),
                   ],
                 )
               ],

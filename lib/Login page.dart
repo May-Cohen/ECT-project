@@ -21,17 +21,53 @@ class _LoginPageState extends State<LoginPage> {
               const Text(
                 "Login page",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 45),
               ),
-              const Center(
-                child: SizedBox(
-                  width: 350,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Please enter your name',
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    SizedBox(
+                      width: 350,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Please enter your name',
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 25),
+                    SizedBox(
+                      width: 350,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Please enter your ID',
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 25),
+                    SizedBox(
+                      width: 350,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Please enter your age',
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 25),
+                    SizedBox(
+                      width: 350,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Please enter your gender',
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               TextButton(
@@ -44,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Container(
                   height: 50,
-                  width: 100,
+                  width: 200,
                   decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(30),
@@ -66,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 35,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
