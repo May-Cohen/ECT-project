@@ -30,7 +30,7 @@ class Homepage extends StatefulWidget {
 
 int score = 0;
 int time = 5;
-int side_temp = -1;
+int sideTemp = -1;
 
 class _HomepageState extends State<Homepage> {
   bool addline = false;
@@ -39,7 +39,7 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
-          Duration(seconds: time),
+          Duration(milliseconds: time),
           () {
             setState(() {
               addline = true;
@@ -53,10 +53,10 @@ class _HomepageState extends State<Homepage> {
     final randomSide = Random();
     CustomPainter ans = list[randomSide.nextInt(list.length)];
     if (ans == list[0]) {
-      side_temp = 0;
+      sideTemp = 0;
     }
     if (ans == list[1]) {
-      side_temp = 1;
+      sideTemp = 1;
     }
     return ans;
   }
@@ -108,7 +108,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        if (side_temp == 0) {
+                        if (sideTemp == 0) {
                           score++;
                           time--;
                         }
@@ -190,7 +190,7 @@ class _HomepageState extends State<Homepage> {
                     const SizedBox(width: 25),
                     TextButton(
                       onPressed: () {
-                        if (side_temp == 1) {
+                        if (sideTemp == 1) {
                           score++;
                           time--;
                         }
