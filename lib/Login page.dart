@@ -1,5 +1,5 @@
+import 'dart:core';
 import 'package:flutter/material.dart';
-
 import 'Explanation page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,16 +9,21 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+String name = '';
+String ID = '';
+String Age = '';
+String Gender = '';
+
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
           decoration: const BoxDecoration(
-            // image: DecorationImage(
-            //     image: AssetImage("assets/images/background.png"),
-            //     fit: BoxFit.cover),
-          ),
+              // image: DecorationImage(
+              //     image: AssetImage("assets/images/background.png"),
+              //     fit: BoxFit.cover),
+              ),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,44 +37,56 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       SizedBox(
                         width: 350,
                         child: TextField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Please enter your name',
                           ),
+                          onChanged: (value1) {
+                            name = value1;
+                          },
                         ),
                       ),
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
                       SizedBox(
                         width: 350,
                         child: TextField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Please enter your ID',
                           ),
+                          onChanged: (value2) {
+                            ID = value2;
+                          },
                         ),
                       ),
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
                       SizedBox(
                         width: 350,
                         child: TextField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Please enter your age',
                           ),
+                          onChanged: (value3) {
+                            Age = value3;
+                          },
                         ),
                       ),
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
                       SizedBox(
                         width: 350,
                         child: TextField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Please enter your gender',
                           ),
+                          onChanged: (value4) {
+                            Gender = value4;
+                          },
                         ),
                       ),
                     ],

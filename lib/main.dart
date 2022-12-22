@@ -29,8 +29,9 @@ class Homepage extends StatefulWidget {
 }
 
 int score = 0;
-int time = 5;
+double time = 5;
 int sideTemp = -1;
+int numOfWrongAnswers = 2;
 
 class _HomepageState extends State<Homepage> {
   bool addline = false;
@@ -39,7 +40,7 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
-          Duration(milliseconds: time),
+          Duration(milliseconds: (time * 1000).toInt()),
           () {
             setState(() {
               addline = true;
@@ -106,17 +107,36 @@ class _HomepageState extends State<Homepage> {
                       height: 70,
                       child: Image.asset('assets/images/left.png'),
                     ),
+
+                    // Left side //
+
                     TextButton(
                       onPressed: () {
+                        print(time);
                         if (sideTemp == 0) {
                           score++;
-                          time--;
+                          time = (time / 2);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Homepage()),
+                          );
+                        } else {
+                          while (numOfWrongAnswers >= 0) {
+                            time = (time + (time / 4));
+                            numOfWrongAnswers--;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Homepage()),
+                            );
+                          }
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => const EndOfTest()),
+                          // );
                         }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Homepage()),
-                        );
                       },
                       child: Container(
                         height: 55,
@@ -149,13 +169,25 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     const SizedBox(width: 25),
+
+                    // Did not see //
+
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Homepage()),
-                        );
+                        while (numOfWrongAnswers >= 0) {
+                          time = (time + (time / 4));
+                          numOfWrongAnswers--;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Homepage()),
+                          );
+                        }
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const EndOfTest()),
+                        // );
                       },
                       child: Container(
                         height: 55,
@@ -188,17 +220,36 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     const SizedBox(width: 25),
+
+                    // Right side //
+
                     TextButton(
                       onPressed: () {
+                        print(time);
                         if (sideTemp == 1) {
                           score++;
-                          time--;
+                          time = (time / 2);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Homepage()),
+                          );
+                        } else {
+                          while (numOfWrongAnswers >= 0) {
+                            time = (time + (time / 4));
+                            numOfWrongAnswers--;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Homepage()),
+                            );
+                          }
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => const EndOfTest()),
+                          // );
                         }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Homepage()),
-                        );
                       },
                       child: Container(
                         height: 55,
