@@ -1,8 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
-
+import 'package:path_provider/path_provider.dart';
+import 'End first test.dart';
 import 'Login page.dart';
+import 'globals.dart' as globals;
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
@@ -66,234 +69,271 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     CustomPainter side = chooseSide();
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text(
-            "Choose your answer",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/back.png"), fit: BoxFit.cover),
           ),
-          Center(
-            child: Stack(
-              children: [
-                CustomPaint(
-                  size: const Size(300, 300),
-                  painter: side,
-                ),
-                if (addline)
-                  CustomPaint(
-                    size: const Size(300, 300),
-                    painter: MyPainterLeftSecond(),
-                    foregroundPainter: MyPainterRightSecond(),
-                  ),
-              ],
-            ),
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ButtonBar(
-                  alignment: MainAxisAlignment.center,
-                  buttonPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "Choose your answer",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
+              ),
+              Center(
+                child: Stack(
                   children: [
-                    SizedBox(
-                      height: 70,
-                      child: Image.asset('assets/images/left.png'),
+                    CustomPaint(
+                      size: const Size(300, 300),
+                      painter: side,
                     ),
-
-                    // Left side //
-
-                    TextButton(
-                      onPressed: () {
-                        print(time);
-                        if (sideTemp == 0) {
-                          score++;
-                          time = (time / 2);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Homepage()),
-                          );
-                        } else {
-                          while (numOfWrongAnswers >= 0) {
-                            time = (time + (time / 4));
-                            numOfWrongAnswers--;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Homepage()),
-                            );
-                          }
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) => const EndOfTest()),
-                          // );
-                        }
-                      },
-                      child: Container(
-                        height: 55,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Left side',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
+                    if (addline)
+                      CustomPaint(
+                        size: const Size(300, 300),
+                        painter: MyPainterLeftSecond(),
+                        foregroundPainter: MyPainterRightSecond(),
                       ),
-                    ),
-                    const SizedBox(width: 25),
-
-                    // Did not see //
-
-                    TextButton(
-                      onPressed: () {
-                        while (numOfWrongAnswers >= 0) {
-                          time = (time + (time / 4));
-                          numOfWrongAnswers--;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Homepage()),
-                          );
-                        }
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const EndOfTest()),
-                        // );
-                      },
-                      child: Container(
-                        height: 55,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Did not see',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 25),
-
-                    // Right side //
-
-                    TextButton(
-                      onPressed: () {
-                        print(time);
-                        if (sideTemp == 1) {
-                          score++;
-                          time = (time / 2);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Homepage()),
-                          );
-                        } else {
-                          while (numOfWrongAnswers >= 0) {
-                            time = (time + (time / 4));
-                            numOfWrongAnswers--;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Homepage()),
-                            );
-                          }
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) => const EndOfTest()),
-                          // );
-                        }
-                      },
-                      child: Container(
-                        height: 55,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Right side',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 70,
-                      child: Image.asset('assets/images/right.png'),
-                    ),
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      buttonPadding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      children: [
+                        SizedBox(
+                          height: 70,
+                          child: Image.asset('assets/images/left.png'),
+                        ),
+
+                        // Left side //
+
+                        TextButton(
+                          onPressed: () {
+                            if (sideTemp == 0) {
+                              score++;
+                              time = (time / 2);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Homepage()),
+                              );
+                            } else {
+                              while (numOfWrongAnswers >= 0) {
+                                time = (time + (time / 4));
+                                numOfWrongAnswers--;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Homepage()),
+                                );
+                              }
+                              generateCsv(globals.globalVariables.data);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EndOfTest()),
+                              );
+                            }
+                          },
+                          child: Container(
+                            height: 55,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(
+                                    5.0,
+                                    5.0,
+                                  ),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 1.0,
+                                ),
+                              ],
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Left side',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 25),
+
+                        // Did not see //
+
+                        TextButton(
+                          onPressed: () {
+                            while (numOfWrongAnswers >= 0) {
+                              time = (time + (time / 4));
+                              numOfWrongAnswers--;
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Homepage()),
+                              );
+                            }
+                            generateCsv(globals.globalVariables.data);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const EndOfTest()),
+                            );
+                          },
+                          child: Container(
+                            height: 55,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(
+                                    5.0,
+                                    5.0,
+                                  ),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 1.0,
+                                ),
+                              ],
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Did not see',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 25),
+
+                        // Right side //
+
+                        TextButton(
+                          onPressed: () {
+                            if (sideTemp == 1) {
+                              score++;
+                              time = (time / 2);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Homepage()),
+                              );
+                            } else {
+                              while (numOfWrongAnswers >= 0) {
+                                time = (time + (time / 4));
+                                numOfWrongAnswers--;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Homepage()),
+                                );
+                              }
+                              generateCsv(globals.globalVariables.data);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EndOfTest()),
+                              );
+                            }
+                          },
+                          child: Container(
+                            height: 55,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(
+                                    5.0,
+                                    5.0,
+                                  ),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 1.0,
+                                ),
+                              ],
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Right side',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 70,
+                          child: Image.asset('assets/images/right.png'),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
+}
+
+generateCsv(List<List<dynamic>> temp) async {
+  List<dynamic> firstRow = [
+    "  Name  "
+        "  ID  "
+        "  Age   "
+        "  Gender   "
+        "   Score  "
+        "   Minimum time    "
+  ];
+  String name = globals.globalVariables.name;
+  String iD = globals.globalVariables.iD;
+  String age = globals.globalVariables.age;
+  String gender = globals.globalVariables.gender;
+  List<dynamic> secondRow = [
+    "  $name " "  $iD " "  $age  " "  $gender " "  $score  " " $time "
+  ];
+  temp.add(firstRow);
+  temp.add(secondRow);
+  String csvData = const ListToCsvConverter().convert(temp);
+  String? directory = (await getExternalStorageDirectory())?.path;
+  //(await getApplicationDocumentsDirectory()).path;
+  final path = "$directory/$iD.csv";
+  print(path);
+  final File file = File(path);
+  await file.writeAsString(csvData);
 }
 
 class MyPainterRight extends CustomPainter {
