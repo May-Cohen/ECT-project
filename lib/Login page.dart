@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                     Shadow(
                       offset: Offset(5.0, 5.0),
                       blurRadius: 10.0,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(154, 174, 16, 16),
                     ),
                   ],
                   fontSize: 60),
