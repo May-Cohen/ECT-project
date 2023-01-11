@@ -32,18 +32,21 @@ class Homepage extends StatefulWidget {
 }
 
 int score = 0;
-double time = 5;
+double time = 4000;
 int sideTemp = -1;
 int numOfWrongAnswers = 2;
+CustomPainter side = MyPainterLeft();
 
 class _HomepageState extends State<Homepage> {
   bool addline = false;
 
   @override
   void initState() {
+    side = chooseSide();
+    print("side:" + side.toString());
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
-          Duration(milliseconds: (time * 1000).toInt()),
+          Duration(milliseconds: (time).toInt()), //(time * 1000).toInt()
           () {
             setState(() {
               addline = true;
@@ -56,9 +59,11 @@ class _HomepageState extends State<Homepage> {
     List<CustomPainter> list = [MyPainterLeft(), MyPainterRight()];
     final randomSide = Random();
     CustomPainter ans = list[randomSide.nextInt(list.length)];
+    // left =0
     if (ans == list[0]) {
       sideTemp = 0;
     }
+    // right=1
     if (ans == list[1]) {
       sideTemp = 1;
     }
@@ -67,7 +72,6 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    CustomPainter side = chooseSide();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 220, 180, 126),
@@ -127,27 +131,30 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 0) {
                               score++;
                               time = (time / 2);
+                              print(time);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
                             } else {
-                              while (numOfWrongAnswers >= 0) {
+                              if (numOfWrongAnswers > 0) {
                                 time = (time + (time / 4));
+                                print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfTest()),
+                                );
+                                generateCsv(globals.globalVariables.data);
                               }
-                              generateCsv(globals.globalVariables.data);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfTest()),
-                              );
                             }
                           },
                           child: Container(
@@ -186,7 +193,7 @@ class _HomepageState extends State<Homepage> {
 
                         TextButton(
                           onPressed: () {
-                            while (numOfWrongAnswers >= 0) {
+                            if (numOfWrongAnswers > 0) {
                               time = (time + (time / 4));
                               numOfWrongAnswers--;
                               Navigator.push(
@@ -194,13 +201,14 @@ class _HomepageState extends State<Homepage> {
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EndOfTest()),
+                              );
+                              generateCsv(globals.globalVariables.data);
                             }
-                            generateCsv(globals.globalVariables.data);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const EndOfTest()),
-                            );
                           },
                           child: Container(
                             height: 55,
@@ -241,27 +249,30 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 1) {
                               score++;
                               time = (time / 2);
+                              print(time);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
                             } else {
-                              while (numOfWrongAnswers >= 0) {
+                              if (numOfWrongAnswers > 0) {
                                 time = (time + (time / 4));
+                                print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfTest()),
+                                );
+                                generateCsv(globals.globalVariables.data);
                               }
-                              generateCsv(globals.globalVariables.data);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfTest()),
-                              );
                             }
                           },
                           child: Container(
