@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'End first test.dart';
 import 'Login page.dart';
@@ -40,13 +41,12 @@ CustomPainter side = MyPainterLeft();
 
 class _HomepageState extends State<Homepage> {
   bool addline = false;
-
   @override
   void initState() {
     side = chooseSide();
     print("side:" + side.toString());
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+    WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
           Duration(milliseconds: (time).toInt()),
           () {
             setState(() {
@@ -54,6 +54,15 @@ class _HomepageState extends State<Homepage> {
             });
           },
         ));
+
+    // WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+    //       Duration(milliseconds: (time).toInt()),
+    //       () {
+    //         setState(() {
+    //           addline = true;
+    //         });
+    //       },
+    //     ));
   }
 
   CustomPainter chooseSide() {
