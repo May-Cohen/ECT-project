@@ -1,3 +1,5 @@
+// ignore_for_file: use_function_type_syntax_for_parameters
+
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
@@ -8,6 +10,8 @@ import 'package:path_provider/path_provider.dart';
 import 'End first test.dart';
 import 'Login page.dart';
 import 'globals.dart' as globals;
+import 'package:cron/cron.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -46,16 +50,8 @@ class _HomepageState extends State<Homepage> {
     side = chooseSide();
     print("side:" + side.toString());
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
-          Duration(milliseconds: (time).toInt()),
-          () {
-            setState(() {
-              addline = true;
-            });
-          },
-        ));
 
-    // WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+    // WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
     //       Duration(milliseconds: (time).toInt()),
     //       () {
     //         setState(() {
@@ -63,6 +59,15 @@ class _HomepageState extends State<Homepage> {
     //         });
     //       },
     //     ));
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+          Duration(milliseconds: (time).toInt()),
+          () {
+            setState(() {
+              addline = true;
+            });
+          },
+        ));
   }
 
   CustomPainter chooseSide() {
