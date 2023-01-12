@@ -31,8 +31,9 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
-int score = 0;
-double time = 4000;
+int click = 0; // num of answers
+int score = 0; // num of correct answers
+double time = 4000; // milliseconds
 int sideTemp = -1;
 int numOfWrongAnswers = 2;
 CustomPainter side = MyPainterLeft();
@@ -46,7 +47,7 @@ class _HomepageState extends State<Homepage> {
     print("side:" + side.toString());
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
-          Duration(milliseconds: (time).toInt()), //(time * 1000).toInt()
+          Duration(milliseconds: (time).toInt()),
           () {
             setState(() {
               addline = true;
@@ -128,8 +129,10 @@ class _HomepageState extends State<Homepage> {
 
                         TextButton(
                           onPressed: () {
+                            click++;
                             if (sideTemp == 0) {
                               score++;
+                              print("score:" + score.toString());
                               time = (time / 2);
                               print(time);
                               Navigator.push(
@@ -161,7 +164,7 @@ class _HomepageState extends State<Homepage> {
                             height: 55,
                             width: 150,
                             decoration: BoxDecoration(
-                              color: Colors.blueGrey,
+                              color: Color.fromARGB(255, 220, 180, 126),
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: const [
                                 BoxShadow(
@@ -193,6 +196,7 @@ class _HomepageState extends State<Homepage> {
 
                         TextButton(
                           onPressed: () {
+                            click++;
                             if (numOfWrongAnswers > 0) {
                               time = (time + (time / 4));
                               numOfWrongAnswers--;
@@ -214,7 +218,7 @@ class _HomepageState extends State<Homepage> {
                             height: 55,
                             width: 150,
                             decoration: BoxDecoration(
-                              color: Colors.blueGrey,
+                              color: Color.fromARGB(255, 220, 180, 126),
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: const [
                                 BoxShadow(
@@ -246,8 +250,10 @@ class _HomepageState extends State<Homepage> {
 
                         TextButton(
                           onPressed: () {
+                            click++;
                             if (sideTemp == 1) {
                               score++;
+                              print("score:" + score.toString());
                               time = (time / 2);
                               print(time);
                               Navigator.push(
@@ -279,7 +285,7 @@ class _HomepageState extends State<Homepage> {
                             height: 55,
                             width: 150,
                             decoration: BoxDecoration(
-                              color: Colors.blueGrey,
+                              color: Color.fromARGB(255, 220, 180, 126),
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: const [
                                 BoxShadow(
@@ -322,19 +328,24 @@ class _HomepageState extends State<Homepage> {
 
 generateCsv(List<List<dynamic>> temp) async {
   List<dynamic> firstRow = [
-    "  Name  "
-        "  ID  "
-        "  Age   "
-        "  Gender   "
-        "   Score  "
-        "   Minimum time    "
+    "         Name          |"
+        "         ID          |"
+        "         Age          |"
+        "         Gender         |"
+        "         Score         |"
+        "         Minimum time          |"
   ];
   String name = globals.globalVariables.name;
   String iD = globals.globalVariables.iD;
   String age = globals.globalVariables.age;
   String gender = globals.globalVariables.gender;
   List<dynamic> secondRow = [
-    "  $name " "  $iD " "  $age  " "  $gender " "  $score  " " $time "
+    "     $name         "
+        "   $iD         "
+        "       $age          "
+        "          $gender         "
+        "           $score / $click         "
+        "           $time         "
   ];
   temp.add(firstRow);
   temp.add(secondRow);
