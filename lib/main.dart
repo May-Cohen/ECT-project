@@ -12,7 +12,6 @@ import 'Login page.dart';
 import 'globals.dart' as globals;
 import 'package:cron/cron.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
