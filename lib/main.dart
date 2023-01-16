@@ -106,23 +106,6 @@ class _HomepageState extends State<Homepage> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
-
-              // for the video ////////////////////////////////
-
-              SizedBox(
-                height: 30,
-                width: 100,
-                child: Text(
-                  "time: $time",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              ////////////////////////////////////////////////////
-
               Center(
                 child: Stack(
                   children: [
@@ -162,8 +145,7 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 0) {
                               score++;
                               print("score:" + score.toString());
-                              time = time - 20;
-                              //time = (time / 2);
+                              time = (time / 2);
                               print(time);
                               Navigator.push(
                                 context,
@@ -172,8 +154,7 @@ class _HomepageState extends State<Homepage> {
                               );
                             } else {
                               if (numOfWrongAnswers > 0) {
-                                //time = (time + (time / 4));
-                                time = time - 20;
+                                time = (time + (time / 4));
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
@@ -181,15 +162,14 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfTest()),
+                                );
+                                generateCsv(globals.globalVariables.data);
                               }
-                              // } else {
-                              //   Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => const EndOfTest()),
-                              //   );
-                              //   generateCsv(globals.globalVariables.data);
-                              // }
                             }
                           },
                           child: Container(
@@ -230,23 +210,21 @@ class _HomepageState extends State<Homepage> {
                           onPressed: () {
                             click++;
                             if (numOfWrongAnswers > 0) {
-                              //time = (time + (time / 4));
-                              time = time - 15;
+                              time = (time + (time / 4));
                               numOfWrongAnswers--;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EndOfTest()),
+                              );
+                              generateCsv(globals.globalVariables.data);
                             }
-                            // } else {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => const EndOfTest()),
-                            //   );
-                            //   generateCsv(globals.globalVariables.data);
-                            // }
                           },
                           child: Container(
                             height: 55,
@@ -288,8 +266,7 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 1) {
                               score++;
                               print("score:" + score.toString());
-                              time = time - 5;
-                              //time = (time / 2);
+                              time = (time / 2);
                               print(time);
                               Navigator.push(
                                 context,
@@ -298,8 +275,7 @@ class _HomepageState extends State<Homepage> {
                               );
                             } else {
                               if (numOfWrongAnswers > 0) {
-                                //time = (time + (time / 4));
-                                time = time - 5;
+                                time = (time + (time / 4));
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
@@ -307,15 +283,14 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfTest()),
+                                );
+                                generateCsv(globals.globalVariables.data);
                               }
-                              // } else {
-                              //   Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => const EndOfTest()),
-                              //   );
-                              //   generateCsv(globals.globalVariables.data);
-                              // }
                             }
                           },
                           child: Container(
