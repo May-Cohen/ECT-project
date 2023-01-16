@@ -181,14 +181,15 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const EndOfTest()),
-                                );
-                                generateCsv(globals.globalVariables.data);
                               }
+                              // } else {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const EndOfTest()),
+                              //   );
+                              //   generateCsv(globals.globalVariables.data);
+                              // }
                             }
                           },
                           child: Container(
@@ -237,14 +238,15 @@ class _HomepageState extends State<Homepage> {
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
-                            } else {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfTest()),
-                              );
-                              generateCsv(globals.globalVariables.data);
                             }
+                            // } else {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const EndOfTest()),
+                            //   );
+                            //   generateCsv(globals.globalVariables.data);
+                            // }
                           },
                           child: Container(
                             height: 55,
@@ -305,14 +307,15 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const Homepage()),
                                 );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const EndOfTest()),
-                                );
-                                generateCsv(globals.globalVariables.data);
                               }
+                              // } else {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const EndOfTest()),
+                              //   );
+                              //   generateCsv(globals.globalVariables.data);
+                              // }
                             }
                           },
                           child: Container(
