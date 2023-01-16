@@ -49,16 +49,7 @@ class _HomepageState extends State<Homepage> {
     print("side:" + side.toString());
     super.initState();
 
-    // WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
-    //       Duration(milliseconds: (time).toInt()),
-    //       () {
-    //         setState(() {
-    //           addline = true;
-    //         });
-    //       },
-    //     ));
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+    WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
           Duration(milliseconds: (time).toInt()),
           () {
             setState(() {
@@ -66,7 +57,16 @@ class _HomepageState extends State<Homepage> {
             });
           },
         ));
-  }
+
+  //   WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
+  //         Duration(milliseconds: (time).toInt()),
+  //         () {
+  //           setState(() {
+  //             addline = true;
+  //           });
+  //         },
+  //       ));
+   }
 
   CustomPainter chooseSide() {
     List<CustomPainter> list = [MyPainterLeft(), MyPainterRight()];
