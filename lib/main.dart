@@ -5,12 +5,10 @@ import 'dart:io';
 import 'dart:math';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'End first test.dart';
 import 'Login page.dart';
 import 'globals.dart' as globals;
-import 'package:cron/cron.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,8 +35,9 @@ class Homepage extends StatefulWidget {
 
 int click = 0; // num of answers
 int score = 0; // num of correct answers
-double time = 4000; // milliseconds
+double time = 60; // milliseconds
 int sideTemp = -1;
+// num of times user can be wrong before the test ends
 int numOfWrongAnswers = 2;
 CustomPainter side = MyPainterLeft();
 
@@ -107,6 +106,23 @@ class _HomepageState extends State<Homepage> {
                     fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
+
+              // for the video ////////////////////////////////
+
+              SizedBox(
+                height: 30,
+                width: 100,
+                child: Text(
+                  "time: $time",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              ////////////////////////////////////////////////////
+
               Center(
                 child: Stack(
                   children: [
@@ -146,7 +162,8 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 0) {
                               score++;
                               print("score:" + score.toString());
-                              time = (time / 2);
+                              time = time - 20;
+                              //time = (time / 2);
                               print(time);
                               Navigator.push(
                                 context,
@@ -155,7 +172,7 @@ class _HomepageState extends State<Homepage> {
                               );
                             } else {
                               if (numOfWrongAnswers > 0) {
-                                time = (time + (time / 4));
+                                //time = (time + (time / 4));
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
@@ -211,7 +228,8 @@ class _HomepageState extends State<Homepage> {
                           onPressed: () {
                             click++;
                             if (numOfWrongAnswers > 0) {
-                              time = (time + (time / 4));
+                              //time = (time + (time / 4));
+                              time = time - 15;
                               numOfWrongAnswers--;
                               Navigator.push(
                                 context,
@@ -267,7 +285,8 @@ class _HomepageState extends State<Homepage> {
                             if (sideTemp == 1) {
                               score++;
                               print("score:" + score.toString());
-                              time = (time / 2);
+                              time = time - 5;
+                              //time = (time / 2);
                               print(time);
                               Navigator.push(
                                 context,
@@ -276,7 +295,7 @@ class _HomepageState extends State<Homepage> {
                               );
                             } else {
                               if (numOfWrongAnswers > 0) {
-                                time = (time + (time / 4));
+                                //time = (time + (time / 4));
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(

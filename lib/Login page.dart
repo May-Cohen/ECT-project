@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                       fontSize: 60),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 50),
                 SizedBox(
                   width: 350,
                   child: TextField(
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 40),
                 SizedBox(
                   child: TextButton(
                     onPressed: () {
