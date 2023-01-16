@@ -173,6 +173,7 @@ class _HomepageState extends State<Homepage> {
                             } else {
                               if (numOfWrongAnswers > 0) {
                                 //time = (time + (time / 4));
+                                time = time - 20;
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
@@ -296,6 +297,7 @@ class _HomepageState extends State<Homepage> {
                             } else {
                               if (numOfWrongAnswers > 0) {
                                 //time = (time + (time / 4));
+                                time = time - 5;
                                 print('wrong:' + time.toString());
                                 numOfWrongAnswers--;
                                 Navigator.push(
