@@ -38,14 +38,12 @@ class _SecondExplanationPage extends State<SecondExplanationPage> {
                     children: [
                       SizedBox(
                         height: 300,
-                        child: Image.asset('assets/images/leftEx.png'),
                       ),
                       const SizedBox(
                         width: 300,
                       ),
                       SizedBox(
                         height: 300,
-                        child: Image.asset('assets/images/rightEx.png'),
                       ),
                     ],
                   )),
