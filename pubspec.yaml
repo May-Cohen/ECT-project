@@ -40,6 +40,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   cron: ^0.5.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,12 @@ flutter:
     - assets/images/loginPageBackground.png
     - assets/images/ExPageBackground.png
     - assets/images/back.png
+
+  # fonts:
+  #   - family: Dosis
+  #     fonts:
+  #       - asset: assets/fonts/Dosis-Bold.ttf
+  #       - asset: assets/fonts/Dosis-ExtraBold.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

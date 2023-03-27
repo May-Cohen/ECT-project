@@ -1,4 +1,4 @@
-class globalVariables {
+class GlobalVariables {
   static String name = '';
   static String iD = '';
   static String age = '';

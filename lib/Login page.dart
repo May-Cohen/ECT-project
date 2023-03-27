@@ -1,6 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'Explanation page.dart';
+import 'First exam explanation page.dart';
 import 'globals.dart' as globals;
 
 class LoginPage extends StatefulWidget {
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your name',
                     ),
                     onChanged: (value1) {
-                      globals.globalVariables.name = value1;
+                      globals.GlobalVariables.name = value1;
                     },
                   ),
                 ),
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your ID',
                     ),
                     onChanged: (value2) {
-                      globals.globalVariables.iD = value2;
+                      globals.GlobalVariables.iD = value2;
                     },
                   ),
                 ),
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your age',
                     ),
                     onChanged: (value3) {
-                      globals.globalVariables.age = value3;
+                      globals.GlobalVariables.age = value3;
                     },
                   ),
                 ),
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your gender',
                     ),
                     onChanged: (value4) {
-                      globals.globalVariables.gender = value4;
+                      globals.GlobalVariables.gender = value4;
                     },
                   ),
                 ),
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ExplanationPage()),
+                            builder: (context) => const FirstExplanationPage()),
                       );
                     },
                     child: Container(

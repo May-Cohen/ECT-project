@@ -1,5 +1,4 @@
 // ignore_for_file: use_function_type_syntax_for_parameters
-
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
@@ -34,11 +33,11 @@ class Homepage extends StatefulWidget {
 }
 
 int click = 0; // num of answers
-int score = 0; // num of correct answers
+int score1 = 0; // num of correct answers
 double time = 60; // milliseconds
 int sideTemp = -1;
 // num of times user can be wrong before the test ends
-int numOfWrongAnswers = 2;
+int numOfWrongAnswers1 = 2;
 CustomPainter side = MyPainterLeft();
 
 class _HomepageState extends State<Homepage> {
@@ -46,7 +45,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     side = chooseSide();
-    print("side:" + side.toString());
+    //print("side:" + side.toString());
     super.initState();
 
     // WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
@@ -143,20 +142,20 @@ class _HomepageState extends State<Homepage> {
                           onPressed: () {
                             click++;
                             if (sideTemp == 0) {
-                              score++;
-                              print("score:" + score.toString());
+                              score1++;
+                              //print("score1:" + score1.toString());
                               time = (time / 2);
-                              print(time);
+                              //print(time);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
                             } else {
-                              if (numOfWrongAnswers > 0) {
+                              if (numOfWrongAnswers1 > 0) {
                                 time = (time + (time / 4));
-                                print('wrong:' + time.toString());
-                                numOfWrongAnswers--;
+                                //print('wrong:' + time.toString());
+                                numOfWrongAnswers1--;
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -168,7 +167,7 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const EndOfTest()),
                                 );
-                                generateCsv(globals.globalVariables.data);
+                                generateCsv(globals.GlobalVariables.data);
                               }
                             }
                           },
@@ -209,9 +208,9 @@ class _HomepageState extends State<Homepage> {
                         TextButton(
                           onPressed: () {
                             click++;
-                            if (numOfWrongAnswers > 0) {
+                            if (numOfWrongAnswers1 > 0) {
                               time = (time + (time / 4));
-                              numOfWrongAnswers--;
+                              numOfWrongAnswers1--;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -223,7 +222,7 @@ class _HomepageState extends State<Homepage> {
                                 MaterialPageRoute(
                                     builder: (context) => const EndOfTest()),
                               );
-                              generateCsv(globals.globalVariables.data);
+                              generateCsv(globals.GlobalVariables.data);
                             }
                           },
                           child: Container(
@@ -264,20 +263,20 @@ class _HomepageState extends State<Homepage> {
                           onPressed: () {
                             click++;
                             if (sideTemp == 1) {
-                              score++;
-                              print("score:" + score.toString());
+                              score1++;
+                              //print("score1:" + score1.toString());
                               time = (time / 2);
-                              print(time);
+                              //print(time);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Homepage()),
                               );
                             } else {
-                              if (numOfWrongAnswers > 0) {
+                              if (numOfWrongAnswers1 > 0) {
                                 time = (time + (time / 4));
-                                print('wrong:' + time.toString());
-                                numOfWrongAnswers--;
+                                //print('wrong:' + time.toString());
+                                numOfWrongAnswers1--;
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -289,7 +288,7 @@ class _HomepageState extends State<Homepage> {
                                   MaterialPageRoute(
                                       builder: (context) => const EndOfTest()),
                                 );
-                                generateCsv(globals.globalVariables.data);
+                                generateCsv(globals.GlobalVariables.data);
                               }
                             }
                           },
@@ -344,19 +343,19 @@ generateCsv(List<List<dynamic>> temp) async {
         "         ID          |"
         "         Age          |"
         "         Gender         |"
-        "         Score         |"
+        "         score1         |"
         "         Minimum time          |"
   ];
-  String name = globals.globalVariables.name;
-  String iD = globals.globalVariables.iD;
-  String age = globals.globalVariables.age;
-  String gender = globals.globalVariables.gender;
+  String name = globals.GlobalVariables.name;
+  String iD = globals.GlobalVariables.iD;
+  String age = globals.GlobalVariables.age;
+  String gender = globals.GlobalVariables.gender;
   List<dynamic> secondRow = [
     "     $name         "
         "   $iD         "
         "       $age          "
         "          $gender         "
-        "           $score / $click         "
+        "           $score1 / $click         "
         "           $time         "
   ];
   temp.add(firstRow);
@@ -365,7 +364,7 @@ generateCsv(List<List<dynamic>> temp) async {
   String? directory = (await getExternalStorageDirectory())?.path;
   //(await getApplicationDocumentsDirectory()).path;
   final path = "$directory/$iD.csv";
-  print(path);
+  //print(path);
   final File file = File(path);
   await file.writeAsString(csvData);
 }

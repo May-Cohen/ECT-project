@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project/Double.dart';
-import 'package:project/Second%20exam%20explanation%20page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +15,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class EndOfTest extends StatefulWidget {
-  const EndOfTest({super.key});
+class EndOfSecondTest extends StatefulWidget {
+  const EndOfSecondTest({super.key});
 
   @override
-  State<EndOfTest> createState() => _EndOfTest();
+  State<EndOfSecondTest> createState() => _EndOfSecondTest();
 }
 
-class _EndOfTest extends State<EndOfTest> {
+class _EndOfSecondTest extends State<EndOfSecondTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +41,7 @@ class _EndOfTest extends State<EndOfTest> {
               children: [
                 const Center(
                   child: Text(
-                    "You finished the first part",
+                    "You finished the second part",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
@@ -53,11 +51,11 @@ class _EndOfTest extends State<EndOfTest> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SecondExplanationPage()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const SecondExplanationPage()),
+                    // );
                   },
                   child: Container(
                     height: 50,
