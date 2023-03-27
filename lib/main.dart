@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:math';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'End first test.dart';
 import 'Login page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
     );
