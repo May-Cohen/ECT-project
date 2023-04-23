@@ -70,6 +70,7 @@ flutter:
     - assets/images/loginPageBackground.png
     - assets/images/ExPageBackground.png
     - assets/images/back.png
+    - assets/images/DoubleExample.png
 
   # fonts:
   #   - family: Dosis
