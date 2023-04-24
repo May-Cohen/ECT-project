@@ -1,9 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'Login page.dart';
 import 'Templates.dart';
 import 'package:flutter/foundation.dart';
+import 'globals.dart' as globals;
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
     );
   }
 }
@@ -29,9 +27,9 @@ class Double extends StatefulWidget {
 }
 
 IconData icon = Icons.abc;
-int score2 = 0;
-int numOfWrongAnswers2 = 1;
-int numOfGames = 5;
+//int score2 = 0;
+//int numOfWrongAnswers2 = 1;
+// int numOfGames = 5;
 final stopwatch = Stopwatch();
 
 class _Double extends State<Double> {
@@ -51,7 +49,7 @@ class _Double extends State<Double> {
     List<List<Positioned>> templates = chooseRandomTemplate(cardA, cardB);
     List<Positioned> templateA = templates[0];
     List<Positioned> templateB = templates[1];
-    print("score2=" + score2.toString());
+    print("globals.score2=" + globals.score2.toString());
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 220, 180, 126),
@@ -90,22 +88,22 @@ class _Double extends State<Double> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Templates.firstTemplate(cardA)[0],
-                            Templates.firstTemplate(cardA)[1],
-                            Templates.firstTemplate(cardA)[2],
-                            Templates.firstTemplate(cardA)[3],
-                            Templates.firstTemplate(cardA)[4],
-                            Templates.firstTemplate(cardA)[5],
-                            Templates.firstTemplate(cardA)[6],
-                            Templates.firstTemplate(cardA)[7],
-                            // templateA[0],
-                            // templateA[1],
-                            // templateA[2],
-                            // templateA[3],
-                            // templateA[4],
-                            // templateA[5],
-                            // templateA[6],
-                            // templateA[7],
+                            // Templates.firstTemplate(cardA)[0],
+                            // Templates.firstTemplate(cardA)[1],
+                            // Templates.firstTemplate(cardA)[2],
+                            // Templates.firstTemplate(cardA)[3],
+                            // Templates.firstTemplate(cardA)[4],
+                            // Templates.firstTemplate(cardA)[5],
+                            // Templates.firstTemplate(cardA)[6],
+                            // Templates.firstTemplate(cardA)[7],
+                            templateA[0],
+                            templateA[1],
+                            templateA[2],
+                            templateA[3],
+                            templateA[4],
+                            templateA[5],
+                            templateA[6],
+                            templateA[7],
                           ],
                         ),
                       ),

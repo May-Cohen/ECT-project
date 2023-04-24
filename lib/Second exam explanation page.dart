@@ -37,13 +37,8 @@ class _SecondExplanationPage extends State<SecondExplanationPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(
-                        height: 300,
-                      ),
-                      const SizedBox(
-                        width: 300,
-                      ),
-                      SizedBox(
-                        height: 300,
+                        height: 400,
+                        child: Image.asset('assets/images/DoubleExample.png'),
                       ),
                     ],
                   )),

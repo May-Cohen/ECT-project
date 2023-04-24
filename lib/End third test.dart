@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project/End%20third%20test.dart';
+import 'globals.dart' as globals;
+import 'package:csv/csv.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:async';
+import 'dart:io';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +20,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class EndOfSecondTest extends StatefulWidget {
-  const EndOfSecondTest({super.key});
+class EndOfThirdTest extends StatefulWidget {
+  const EndOfThirdTest({super.key});
 
   @override
-  State<EndOfSecondTest> createState() => _EndOfSecondTest();
+  State<EndOfThirdTest> createState() => _EndOfThirdTest();
 }
 
-class _EndOfSecondTest extends State<EndOfSecondTest> {
+class _EndOfThirdTest extends State<EndOfThirdTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +46,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
               children: [
                 const Center(
                   child: Text(
-                    "You finished the second part",
+                    "You finished the last part",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
@@ -52,11 +56,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const EndOfThirdTest()),
-                    );
+                    generateCsv(globals.data);
                   },
                   child: Container(
                     height: 50,
@@ -78,7 +78,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                     ),
                     child: const Center(
                       child: Text(
-                        'next part',
+                        'End test',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white,
@@ -90,5 +90,43 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                 )
               ],
             )));
+  }
+
+  generateCsv(List<List<dynamic>> temp) async {
+    String name = globals.name;
+    String iD = globals.iD;
+    String age = globals.age;
+    String gender = globals.gender;
+
+    List<dynamic> userInfo = [
+      'Name: $name \n ID: $iD \n Age: $age \n Gender: $gender \n'
+    ];
+    // First exam
+    int score1 = globals.score1;
+    int click = globals.click;
+    double time1 = globals.time1;
+    List<dynamic> firstExam = [
+      'First exam: \n Score = $score1 / $click \n Minimum time = $time1 \n'
+    ];
+    // Second exam
+    int score2 = globals.score2;
+    Duration time2 = globals.time2;
+    List<dynamic> secondExam = [
+      'Second exam: \n Score = $score2 \n Minimum time = $time2 \n'
+    ];
+
+    // Third exam
+
+    temp.add(userInfo);
+    temp.add(firstExam);
+    temp.add(secondExam);
+
+    String csvData = const ListToCsvConverter().convert(temp);
+    String? directory = (await getExternalStorageDirectory())?.path;
+    //(await getApplicationDocumentsDirectory()).path;
+    final path = "$directory/$iD.csv";
+    //print(path);
+    final File file = File(path);
+    await file.writeAsString(csvData);
   }
 }

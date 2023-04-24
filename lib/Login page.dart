@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'First exam explanation page.dart';
+import 'SettingBar.dart';
 import 'globals.dart' as globals;
 
 class LoginPage extends StatefulWidget {
@@ -14,6 +15,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: SettingBar(),
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          leading: Builder(
+            builder: (context) {
+              return IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: const Icon(Icons.settings));
+            },
+          ),
+        ),
         resizeToAvoidBottomInset: false,
         body: Container(
           decoration: const BoxDecoration(
@@ -50,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your name',
                     ),
                     onChanged: (value1) {
-                      globals.GlobalVariables.name = value1;
+                      globals.name = value1;
                     },
                   ),
                 ),
@@ -63,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your ID',
                     ),
                     onChanged: (value2) {
-                      globals.GlobalVariables.iD = value2;
+                      globals.iD = value2;
                     },
                   ),
                 ),
@@ -76,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your age',
                     ),
                     onChanged: (value3) {
-                      globals.GlobalVariables.age = value3;
+                      globals.age = value3;
                     },
                   ),
                 ),
@@ -89,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Please enter your gender',
                     ),
                     onChanged: (value4) {
-                      globals.GlobalVariables.gender = value4;
+                      globals.gender = value4;
                     },
                   ),
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Double.dart';
 import 'End second test.dart';
 import 'package:get/get.dart';
+import 'globals.dart' as globals;
 
 class Templates {
   static List<Positioned> firstTemplate(List<IconData> card) {
@@ -12,17 +13,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[0] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -47,17 +49,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[1] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -82,17 +85,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[2] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -117,17 +121,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[3] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -153,17 +158,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[4] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -188,17 +194,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[5] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -223,17 +230,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[6] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -258,17 +266,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[7] == icon) {
-            score2++;
+            globals.score2++;
             stopwatch.stop();
-            print(stopwatch.elapsed);
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -308,15 +317,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[0] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -341,15 +353,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[1] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -374,15 +389,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[2] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -407,15 +425,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[3] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -440,15 +461,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[4] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -473,15 +497,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[5] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -506,15 +533,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[6] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -539,15 +569,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[7] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -587,15 +620,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[0] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -620,15 +656,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[1] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -653,15 +692,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[2] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -687,15 +729,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[3] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -720,15 +765,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[4] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -754,15 +802,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[5] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -787,15 +838,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[6] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -820,15 +874,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[7] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -868,15 +925,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[0] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -901,15 +961,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[1] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -934,15 +997,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[2] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -967,15 +1033,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[3] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1000,15 +1069,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[4] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1033,15 +1105,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[5] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1066,15 +1141,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[6] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1099,15 +1177,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[7] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1147,15 +1228,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[0] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1180,15 +1264,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[1] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1213,15 +1300,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[2] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1246,15 +1336,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[3] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1279,15 +1372,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[4] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1312,15 +1408,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[5] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1345,15 +1444,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[6] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
@@ -1378,15 +1480,18 @@ class Templates {
       child: TextButton(
         onPressed: () {
           if (card[7] == icon) {
-            score2++;
+            globals.score2++;
+            stopwatch.stop();
+            globals.time2 = stopwatch.elapsed;
+            //print(stopwatch.elapsed);
             Get.offAll(const Double());
-            numOfGames--;
-            if (numOfGames == 0) {
+            globals.numOfGames--;
+            if (globals.numOfGames == 0) {
               Get.offAll(const EndOfSecondTest());
             }
           } else {
-            if (numOfWrongAnswers2 > 0) {
-              numOfWrongAnswers2--;
+            if (globals.numOfWrongAnswers2 > 0) {
+              globals.numOfWrongAnswers2--;
             } else {
               Get.offAll(const EndOfSecondTest());
             }
