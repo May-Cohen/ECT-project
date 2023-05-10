@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'Templates.dart';
+import 'Templates first version.dart';
+import 'Templates second version.dart';
 import 'package:flutter/foundation.dart';
 import 'globals.dart' as globals;
 
@@ -42,14 +43,16 @@ class _Double extends State<Double> {
 
   @override
   Widget build(BuildContext context) {
+    globals.gamesTimes++;
     List<List<IconData>> cards = chooseRandomCard();
     List<IconData> cardA = cards[0];
     List<IconData> cardB = cards[1];
     icon = findSimilarIcon(cardA, cardB);
-    List<List<Positioned>> templates = chooseRandomTemplate(cardA, cardB);
+    List<List<Positioned>> templates =
+        chooseTemplate(globals.version, cardA, cardB);
     List<Positioned> templateA = templates[0];
     List<Positioned> templateB = templates[1];
-    print("globals.score2=" + globals.score2.toString());
+    globals.leftOrRight = 0;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 220, 180, 126),
@@ -64,7 +67,7 @@ class _Double extends State<Double> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Click on the only symbol on the left card that matches the symbol on the right card:",
+                "Click on the only symbol on the left card that matches a symbol on the right card:",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.black,
@@ -79,52 +82,62 @@ class _Double extends State<Double> {
                       const SizedBox(
                         width: 15,
                       ),
-                      Container(
-                        height: 400,
-                        width: 400,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(500)),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            // Templates.firstTemplate(cardA)[0],
-                            // Templates.firstTemplate(cardA)[1],
-                            // Templates.firstTemplate(cardA)[2],
-                            // Templates.firstTemplate(cardA)[3],
-                            // Templates.firstTemplate(cardA)[4],
-                            // Templates.firstTemplate(cardA)[5],
-                            // Templates.firstTemplate(cardA)[6],
-                            // Templates.firstTemplate(cardA)[7],
-                            templateA[0],
-                            templateA[1],
-                            templateA[2],
-                            templateA[3],
-                            templateA[4],
-                            templateA[5],
-                            templateA[6],
-                            templateA[7],
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          globals.leftOrRight = 1;
+                        },
+                        child: Container(
+                          height: 400,
+                          width: 400,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(500)),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              // Templates1.firstTemplate(cardA)[0],
+                              // Templates1.firstTemplate(cardA)[1],
+                              // Templates1.firstTemplate(cardA)[2],
+                              // Templates1.firstTemplate(cardA)[3],
+                              // Templates1.firstTemplate(cardA)[4],
+                              // Templates1.firstTemplate(cardA)[5],
+                              // Templates1.firstTemplate(cardA)[6],
+                              // Templates1.firstTemplate(cardA)[7],
+                              templateA[0],
+                              templateA[1],
+                              templateA[2],
+                              templateA[3],
+                              templateA[4],
+                              templateA[5],
+                              templateA[6],
+                              templateA[7],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        height: 400,
-                        width: 400,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(500)),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            templateB[0],
-                            templateB[1],
-                            templateB[2],
-                            templateB[3],
-                            templateB[4],
-                            templateB[5],
-                            templateB[6],
-                            templateB[7],
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          globals.leftOrRight = 2;
+                        },
+                        child: Container(
+                          height: 400,
+                          width: 400,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(500)),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              templateB[0],
+                              templateB[1],
+                              templateB[2],
+                              templateB[3],
+                              templateB[4],
+                              templateB[5],
+                              templateB[6],
+                              templateB[7],
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
@@ -236,7 +249,7 @@ List<List<IconData>> chooseRandomCard() {
   return ans;
 }
 
-List<List<Positioned>> chooseRandomTemplate(
+List<List<Positioned>> chooseRandomTemplate1(
     List<IconData> cardA, List<IconData> cardB) {
   List<int> temp = [
     1,
@@ -258,39 +271,104 @@ List<List<Positioned>> chooseRandomTemplate(
   List<Positioned> tempB = [];
 
   if (temp1 == 1) {
-    tempA = Templates.firstTemplate(cardA);
+    tempA = Templates1.firstTemplate(cardA);
   }
   if (temp1 == 2) {
-    tempA = Templates.secondTemplate(cardA);
+    tempA = Templates1.secondTemplate(cardA);
   }
   if (temp1 == 3) {
-    tempA = Templates.thirdTemplate(cardA);
+    tempA = Templates1.thirdTemplate(cardA);
   }
   if (temp1 == 4) {
-    tempA = Templates.fourthTemplate(cardA);
+    tempA = Templates1.fourthTemplate(cardA);
   }
   if (temp1 == 5) {
-    tempA = Templates.fifthTemplate(cardA);
+    tempA = Templates1.fifthTemplate(cardA);
   }
 
   if (temp2 == 1) {
-    tempB = Templates.firstTemplate(cardB);
+    tempB = Templates1.firstTemplate(cardB);
   }
   if (temp2 == 2) {
-    tempB = Templates.secondTemplate(cardB);
+    tempB = Templates1.secondTemplate(cardB);
   }
   if (temp2 == 3) {
-    tempB = Templates.thirdTemplate(cardB);
+    tempB = Templates1.thirdTemplate(cardB);
   }
   if (temp2 == 4) {
-    tempB = Templates.fourthTemplate(cardB);
+    tempB = Templates1.fourthTemplate(cardB);
   }
   if (temp2 == 5) {
-    tempB = Templates.fifthTemplate(cardB);
+    tempB = Templates1.fifthTemplate(cardB);
   }
 
   List<List<Positioned>> ans = [tempA, tempB];
   return ans;
+}
+
+List<List<Positioned>> chooseRandomTemplate2(
+    List<IconData> cardA, List<IconData> cardB) {
+  List<int> temp = [
+    1,
+    2,
+    3,
+    4,
+    5,
+  ];
+  final randomTemplate = Random();
+  int temp1 = temp[randomTemplate.nextInt(temp.length)];
+  int temp2 = temp[randomTemplate.nextInt(temp.length)];
+  if (temp1 == temp2) {
+    while (temp1 == temp2) {
+      temp2 = temp[randomTemplate.nextInt(temp.length)];
+    }
+  }
+
+  List<Positioned> tempA = [];
+  List<Positioned> tempB = [];
+
+  if (temp1 == 1) {
+    tempA = Templates2.firstTemplate(cardA);
+  }
+  if (temp1 == 2) {
+    tempA = Templates2.secondTemplate(cardA);
+  }
+  if (temp1 == 3) {
+    tempA = Templates2.thirdTemplate(cardA);
+  }
+  if (temp1 == 4) {
+    tempA = Templates2.fourthTemplate(cardA);
+  }
+  if (temp1 == 5) {
+    tempA = Templates2.fifthTemplate(cardA);
+  }
+
+  if (temp2 == 1) {
+    tempB = Templates2.firstTemplate(cardB);
+  }
+  if (temp2 == 2) {
+    tempB = Templates2.secondTemplate(cardB);
+  }
+  if (temp2 == 3) {
+    tempB = Templates2.thirdTemplate(cardB);
+  }
+  if (temp2 == 4) {
+    tempB = Templates2.fourthTemplate(cardB);
+  }
+  if (temp2 == 5) {
+    tempB = Templates2.fifthTemplate(cardB);
+  }
+
+  List<List<Positioned>> ans = [tempA, tempB];
+  return ans;
+}
+
+List<List<Positioned>> chooseTemplate(int x, cardA, cardB) {
+  if (x == 2) {
+    return chooseRandomTemplate2(cardA, cardB);
+  } else {
+    return chooseRandomTemplate1(cardA, cardB);
+  }
 }
 
 IconData findSimilarIcon(List<IconData> a, List<IconData> b) {

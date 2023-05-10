@@ -1,10 +1,71 @@
 import 'package:flutter/material.dart';
-import 'Double.dart';
+import 'Second Exam.dart';
 import 'End second test.dart';
 import 'package:get/get.dart';
 import 'globals.dart' as globals;
 
-class Templates {
+Map<IconData, Color> icons_color = {
+  Icons.umbrella: Colors.amber,
+  Icons.beach_access: Colors.black,
+  Icons.grade_outlined: Colors.pink,
+  Icons.alarm: Colors.red,
+  Icons.airplanemode_active_rounded: Colors.blue,
+  Icons.bedtime_rounded: Colors.brown,
+  Icons.sanitizer: Colors.purple,
+  Icons.favorite_border: Colors.cyan,
+  Icons.cloud: Colors.orange,
+  Icons.sunny: Colors.lime,
+  Icons.house: Colors.orangeAccent,
+  Icons.park: Colors.teal,
+  Icons.local_florist: Colors.grey,
+  Icons.stream: Colors.yellow,
+  Icons.tag_faces_sharp: Colors.indigo,
+  Icons.anchor_rounded: Colors.blueAccent,
+  Icons.bolt_sharp: Colors.blueGrey,
+  Icons.wine_bar_rounded: Colors.cyanAccent,
+  Icons.wb_incandescent_outlined: Colors.deepOrange,
+  Icons.watch_outlined: Colors.deepPurple,
+  Icons.vpn_key_outlined: Colors.deepPurpleAccent,
+  Icons.water_drop_outlined: Colors.green,
+  Icons.volume_up: Colors.greenAccent,
+  Icons.blender: Colors.lightBlue,
+  Icons.pets: Colors.lightGreen,
+  Icons.cruelty_free_outlined: Colors.lightGreenAccent,
+  Icons.agriculture: Colors.redAccent,
+  Icons.fire_truck: Colors.lime.shade900,
+  Icons.local_cafe: Colors.green.shade900,
+  Icons.golf_course: Colors.teal.shade900,
+  Icons.icecream_outlined: Colors.cyan.shade900,
+  Icons.fitness_center: Colors.lightBlue.shade900,
+  Icons.headphones: Colors.deepPurple.shade900,
+  Icons.grid_3x3: Colors.blueGrey.shade900,
+  Icons.battery_charging_full: Colors.brown.shade50,
+  Icons.sports_baseball: Colors.brown.shade300,
+  Icons.toys: Colors.grey.shade900,
+  Icons.pedal_bike: Colors.pink.shade100,
+  Icons.business_center: Colors.pink.shade200,
+  Icons.cut: Colors.pink.shade900,
+  Icons.point_of_sale: Colors.pinkAccent.shade700,
+  Icons.keyboard: Colors.red.shade600,
+  Icons.palette_outlined: Colors.lightBlue.shade100,
+  Icons.hourglass_bottom_sharp: Colors.lightBlue.shade200,
+  Icons.child_friendly: Colors.blueAccent.shade100,
+  Icons.ac_unit: Colors.indigo.shade50,
+  Icons.check_circle: Colors.purple.shade100,
+  Icons.format_paint: Colors.grey.shade800,
+  Icons.man: Colors.red.shade900,
+  Icons.air: Colors.redAccent.shade400,
+  Icons.castle_sharp: Colors.orange.shade800,
+  Icons.filter_vintage: Colors.amber.shade700,
+  Icons.attach_file: Colors.lime.shade700,
+  Icons.attractions_outlined: Colors.limeAccent.shade400,
+  Icons.sports: Colors.green.shade200,
+  Icons.shutter_speed_outlined: Colors.tealAccent.shade100,
+  Icons.checkroom: Colors.cyanAccent.shade400,
+  Icons.shower: Colors.indigo.shade300,
+};
+
+class Templates2 {
   static List<Positioned> firstTemplate(List<IconData> card) {
     List<Positioned> ans = [];
     Positioned a = Positioned(
@@ -16,16 +77,24 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.rountimes.add(globals.time2);
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -36,7 +105,7 @@ class Templates {
             quarterTurns: 78,
             child: Icon(
               card[0],
-              color: Colors.amber,
+              color: icons_color[card[0]],
               size: 100,
             ),
           ),
@@ -52,16 +121,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -72,7 +148,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[1],
-              color: Colors.green,
+              color: icons_color[card[1]],
               size: 130,
             ),
           ),
@@ -88,16 +164,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -108,7 +191,7 @@ class Templates {
             quarterTurns: 30,
             child: Icon(
               card[2],
-              color: Colors.red,
+              color: icons_color[card[2]],
               size: 115,
             ),
           ),
@@ -124,16 +207,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -144,7 +234,7 @@ class Templates {
             quarterTurns: 180,
             child: Icon(
               card[3],
-              color: Colors.purple,
+              color: icons_color[card[3]],
               size: 70,
             ),
           ),
@@ -161,16 +251,22 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -181,7 +277,7 @@ class Templates {
             quarterTurns: 67,
             child: Icon(
               card[4],
-              color: Colors.blue,
+              color: icons_color[card[4]],
               size: 50,
             ),
           ),
@@ -197,16 +293,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -217,7 +320,7 @@ class Templates {
             quarterTurns: 18,
             child: Icon(
               card[5],
-              color: Colors.black,
+              color: icons_color[card[5]],
               size: 80,
             ),
           ),
@@ -233,16 +336,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -253,7 +363,7 @@ class Templates {
             quarterTurns: 40,
             child: Icon(
               card[6],
-              color: Colors.pink,
+              color: icons_color[card[6]],
               size: 95,
             ),
           ),
@@ -269,16 +379,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -289,7 +406,7 @@ class Templates {
             quarterTurns: 78,
             child: Icon(
               card[7],
-              color: Colors.orange,
+              color: icons_color[card[7]],
               size: 60,
             ),
           ),
@@ -320,16 +437,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -340,7 +464,7 @@ class Templates {
             quarterTurns: 30,
             child: Icon(
               card[0],
-              color: Colors.cyan,
+              color: icons_color[card[0]],
               size: 160,
             ),
           ),
@@ -356,16 +480,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -376,7 +507,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[1],
-              color: Colors.orange,
+              color: icons_color[card[1]],
               size: 80,
             ),
           ),
@@ -392,16 +523,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -412,7 +550,7 @@ class Templates {
             quarterTurns: 35,
             child: Icon(
               card[2],
-              color: Colors.grey,
+              color: icons_color[card[2]],
               size: 70,
             ),
           ),
@@ -428,16 +566,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -448,7 +593,7 @@ class Templates {
             quarterTurns: 12,
             child: Icon(
               card[3],
-              color: Colors.teal,
+              color: icons_color[card[3]],
               size: 95,
             ),
           ),
@@ -464,16 +609,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -484,7 +636,7 @@ class Templates {
             quarterTurns: 9,
             child: Icon(
               card[4],
-              color: Colors.blueAccent,
+              color: icons_color[card[4]],
               size: 50,
             ),
           ),
@@ -500,16 +652,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -520,7 +679,7 @@ class Templates {
             quarterTurns: 175,
             child: Icon(
               card[5],
-              color: Colors.black,
+              color: icons_color[card[5]],
               size: 60,
             ),
           ),
@@ -536,16 +695,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -556,7 +722,7 @@ class Templates {
             quarterTurns: 50,
             child: Icon(
               card[6],
-              color: Colors.red,
+              color: icons_color[card[6]],
               size: 90,
             ),
           ),
@@ -572,16 +738,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -592,7 +765,7 @@ class Templates {
             quarterTurns: 50,
             child: Icon(
               card[7],
-              color: Colors.lime,
+              color: icons_color[card[7]],
               size: 100,
             ),
           ),
@@ -623,16 +796,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -643,7 +823,7 @@ class Templates {
             quarterTurns: 50,
             child: Icon(
               card[0],
-              color: Colors.redAccent,
+              color: icons_color[card[0]],
               size: 130,
             ),
           ),
@@ -659,16 +839,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -679,7 +866,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[1],
-              color: Colors.blue,
+              color: icons_color[card[1]],
               size: 150,
             ),
           ),
@@ -695,16 +882,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -715,7 +909,7 @@ class Templates {
             quarterTurns: 2,
             child: Icon(
               card[2],
-              color: Colors.orange,
+              color: icons_color[card[2]],
               size: 40,
             ),
           ),
@@ -732,16 +926,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -752,7 +953,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[3],
-              color: Colors.green,
+              color: icons_color[card[3]],
               size: 90,
             ),
           ),
@@ -768,16 +969,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -788,7 +996,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[4],
-              color: Colors.pink,
+              color: icons_color[card[4]],
               size: 70,
             ),
           ),
@@ -805,16 +1013,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -825,7 +1040,7 @@ class Templates {
             quarterTurns: 2,
             child: Icon(
               card[5],
-              color: Colors.yellow,
+              color: icons_color[card[5]],
               size: 70,
             ),
           ),
@@ -841,16 +1056,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -861,7 +1083,7 @@ class Templates {
             quarterTurns: 1,
             child: Icon(
               card[6],
-              color: Colors.deepPurple,
+              color: icons_color[card[6]],
               size: 80,
             ),
           ),
@@ -877,16 +1099,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -897,7 +1126,7 @@ class Templates {
             quarterTurns: 1,
             child: Icon(
               card[7],
-              color: Colors.black,
+              color: icons_color[card[7]],
               size: 70,
             ),
           ),
@@ -928,16 +1157,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -948,7 +1184,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[0],
-              color: Colors.black,
+              color: icons_color[card[0]],
               size: 100,
             ),
           ),
@@ -964,16 +1200,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -984,7 +1227,7 @@ class Templates {
             quarterTurns: 2,
             child: Icon(
               card[1],
-              color: Colors.orange,
+              color: icons_color[card[1]],
               size: 120,
             ),
           ),
@@ -1000,16 +1243,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1020,7 +1270,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[2],
-              color: Colors.red,
+              color: icons_color[card[2]],
               size: 80,
             ),
           ),
@@ -1036,16 +1286,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1056,7 +1313,7 @@ class Templates {
             quarterTurns: 1,
             child: Icon(
               card[3],
-              color: Colors.blue,
+              color: icons_color[card[3]],
               size: 90,
             ),
           ),
@@ -1072,16 +1329,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1092,7 +1356,7 @@ class Templates {
             quarterTurns: 1,
             child: Icon(
               card[4],
-              color: Colors.grey,
+              color: icons_color[card[4]],
               size: 100,
             ),
           ),
@@ -1108,16 +1372,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1128,7 +1399,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[5],
-              color: Colors.lightGreen,
+              color: icons_color[card[5]],
               size: 60,
             ),
           ),
@@ -1144,16 +1415,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1164,7 +1442,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[6],
-              color: Colors.purpleAccent,
+              color: icons_color[card[6]],
               size: 90,
             ),
           ),
@@ -1180,16 +1458,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1200,7 +1485,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[7],
-              color: Colors.yellow,
+              color: icons_color[card[7]],
               size: 65,
             ),
           ),
@@ -1231,16 +1516,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1251,7 +1543,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[0],
-              color: Colors.black,
+              color: icons_color[card[0]],
               size: 150,
             ),
           ),
@@ -1267,16 +1559,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1287,7 +1586,7 @@ class Templates {
             quarterTurns: 2,
             child: Icon(
               card[1],
-              color: Colors.red,
+              color: icons_color[card[1]],
               size: 65,
             ),
           ),
@@ -1303,16 +1602,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1323,7 +1629,7 @@ class Templates {
             quarterTurns: 1,
             child: Icon(
               card[2],
-              color: Colors.brown,
+              color: icons_color[card[2]],
               size: 99,
             ),
           ),
@@ -1339,16 +1645,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1359,7 +1672,7 @@ class Templates {
             quarterTurns: 0,
             child: Icon(
               card[3],
-              color: Colors.lightBlue,
+              color: icons_color[card[3]],
               size: 50,
             ),
           ),
@@ -1375,16 +1688,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1395,7 +1715,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[4],
-              color: Colors.pinkAccent,
+              color: icons_color[card[4]],
               size: 90,
             ),
           ),
@@ -1411,16 +1731,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1431,7 +1758,7 @@ class Templates {
             quarterTurns: 2,
             child: Icon(
               card[5],
-              color: Colors.teal,
+              color: icons_color[card[5]],
               size: 60,
             ),
           ),
@@ -1447,16 +1774,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1467,7 +1801,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[6],
-              color: Colors.purple,
+              color: icons_color[card[6]],
               size: 90,
             ),
           ),
@@ -1483,16 +1817,23 @@ class Templates {
             globals.score2++;
             stopwatch.stop();
             globals.time2 = stopwatch.elapsed;
+            globals.rountimes.add(globals.time2);
+            if (globals.leftOrRight == 2) {
+              globals.numClickOnRight++;
+            }
             //print(stopwatch.elapsed);
             Get.offAll(const Double());
             globals.numOfGames--;
             if (globals.numOfGames == 0) {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           } else {
             if (globals.numOfWrongAnswers2 > 0) {
+              globals.rountimes.add(globals.time2);
               globals.numOfWrongAnswers2--;
             } else {
+              globals.rountimes.add(globals.time2);
               Get.offAll(const EndOfSecondTest());
             }
           }
@@ -1503,7 +1844,7 @@ class Templates {
             quarterTurns: 3,
             child: Icon(
               card[7],
-              color: Colors.orange,
+              color: icons_color[card[7]],
               size: 70,
             ),
           ),

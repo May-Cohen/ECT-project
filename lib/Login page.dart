@@ -1,7 +1,6 @@
-import 'dart:core';
 import 'package:flutter/material.dart';
 import 'First exam explanation page.dart';
-import 'SettingBar.dart';
+import 'Setting Bar.dart';
 import 'globals.dart' as globals;
 
 class LoginPage extends StatefulWidget {
@@ -15,9 +14,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: SettingBar(),
+        drawer: const SettingBar(),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
           leading: Builder(
             builder: (context) {
               return IconButton(
@@ -32,8 +31,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/loginPageBackground.png"),
-                fit: BoxFit.cover),
+                image: AssetImage("assets/images/back.png"), fit: BoxFit.cover),
           ),
           child: Center(
             child: Column(
@@ -121,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 220, 180, 126),
+                        color: const Color.fromARGB(255, 220, 180, 126),
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: const [
                           BoxShadow(

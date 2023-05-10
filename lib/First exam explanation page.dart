@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'First Exam.dart';
 
 class FirstExplanationPage extends StatefulWidget {
   const FirstExplanationPage({super.key});
@@ -13,7 +13,7 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
         ),
         body: Container(
             decoration: const BoxDecoration(
@@ -70,15 +70,14 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const Homepage()),
+                        MaterialPageRoute(builder: (context) => const Sides()),
                       );
                     },
                     child: Container(
                       height: 50,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 220, 180, 126),
+                        color: const Color.fromARGB(255, 220, 180, 126),
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: const [
                           BoxShadow(

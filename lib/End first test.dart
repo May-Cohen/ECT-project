@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Double.dart';
-import 'package:project/Second%20exam%20explanation%20page.dart';
+import 'package:project/Second exam explanation page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +28,7 @@ class _EndOfTest extends State<EndOfTest> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
         ),
         body: Container(
             decoration: const BoxDecoration(
@@ -63,7 +62,7 @@ class _EndOfTest extends State<EndOfTest> {
                     height: 50,
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 220, 180, 126),
+                      color: const Color.fromARGB(255, 220, 180, 126),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: const [
                         BoxShadow(

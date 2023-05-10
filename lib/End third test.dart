@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'globals.dart' as globals;
 import 'package:csv/csv.dart';
 import 'package:path_provider/path_provider.dart';
-import 'dart:async';
+import 'package:external_path/external_path.dart';
 import 'dart:io';
 
 void main() {
@@ -32,7 +33,7 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
         ),
         body: Container(
             decoration: const BoxDecoration(
@@ -56,13 +57,17 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
                 ),
                 TextButton(
                   onPressed: () {
-                    generateCsv(globals.data);
+                    createFolder();
+                    createInfo();
+                    createFirstExam();
+                    createSecondExam();
+                    createThirdExam();
                   },
                   child: Container(
                     height: 50,
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 220, 180, 126),
+                      color: const Color.fromARGB(255, 220, 180, 126),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: const [
                         BoxShadow(
@@ -92,41 +97,79 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
             )));
   }
 
-  generateCsv(List<List<dynamic>> temp) async {
-    String name = globals.name;
-    String iD = globals.iD;
-    String age = globals.age;
-    String gender = globals.gender;
+  Future<String> createFolder() async {
+    String temp =
+        '${(Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationSupportDirectory())!.path}/${globals.iD}';
+    final directory = Directory(temp);
+    var per = await Permission.storage.status;
+    if (!per.isGranted) {
+      await Permission.storage.request();
+    }
+    if ((await directory.exists())) {
+      return directory.path;
+    } else {
+      directory.create();
+      return directory.path;
+    }
+  }
 
-    List<dynamic> userInfo = [
-      'Name: $name \n ID: $iD \n Age: $age \n Gender: $gender \n'
-    ];
-    // First exam
-    int score1 = globals.score1;
-    int click = globals.click;
-    double time1 = globals.time1;
-    List<dynamic> firstExam = [
-      'First exam: \n Score = $score1 / $click \n Minimum time = $time1 \n'
-    ];
-    // Second exam
-    int score2 = globals.score2;
-    Duration time2 = globals.time2;
-    List<dynamic> secondExam = [
-      'Second exam: \n Score = $score2 \n Minimum time = $time2 \n'
-    ];
+  Future<File> get createFileInfo async {
+    final directory = await createFolder();
+    return File('$directory/Info.txt');
+  }
 
-    // Third exam
+  Future<File> get createFile1 async {
+    final directory = await createFolder();
+    return File('$directory/First Exam.txt');
+  }
 
-    temp.add(userInfo);
-    temp.add(firstExam);
-    temp.add(secondExam);
+  Future<File> get createFile2 async {
+    final directory = await createFolder();
+    return File('$directory/Second Exam.txt');
+  }
 
-    String csvData = const ListToCsvConverter().convert(temp);
-    String? directory = (await getExternalStorageDirectory())?.path;
-    //(await getApplicationDocumentsDirectory()).path;
-    final path = "$directory/$iD.csv";
-    //print(path);
-    final File file = File(path);
-    await file.writeAsString(csvData);
+  Future<File> get createFile3 async {
+    final directory = await createFolder();
+    return File('$directory/Third Exam.txt');
+  }
+
+  Future<File> createInfo() async {
+    final file = await createFileInfo;
+    return file.writeAsString(
+        "Personal details: \n Full name: ${globals.name} \n ID: ${globals.iD} \n Age: ${globals.age} \n Gender: ${globals.gender} \n");
+  }
+
+  createFirstExam() async {
+    final file = await createFile1;
+    String temp = "";
+    for (int i = 0; i < (globals.roundSides).length; i++) {
+      if (globals.roundSides[i] == 0) {
+        temp = "left";
+      } else {
+        temp = "right";
+      }
+      file.writeAsString("The start time: ${globals.init} \n \n",
+          mode: FileMode.append);
+      await file.writeAsString(
+          "${i + 1}th  round: \n The actual side: $temp \n The shape display time: ${globals.roundsTimes[i]} \n The correctness of the choice: ${globals.roundCorrectness[i]} \n \n",
+          mode: FileMode.append);
+    }
+    file.writeAsString("Total correct answers: ${globals.score1} \n",
+        mode: FileMode.append);
+  }
+
+  createSecondExam() async {
+    final file = await createFile2;
+    for (int i = 0; i < globals.gamesTimes; i++) {
+      await file.writeAsString(
+          "${i + 1}th  round: \n The time until choose the object: ${globals.rountimes[i]} \n The correctness of the choice: \n The side clicked:  \n \n",
+          mode: FileMode.append);
+    }
+    file.writeAsString("Total correct answers: ${globals.score2} \n",
+        mode: FileMode.append);
+  }
+
+  createThirdExam() async {
+    final file = await createFile3;
   }
 }

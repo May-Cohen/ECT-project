@@ -1,0 +1,39 @@
+  // generateCsv(List<List<dynamic>> temp) async {
+  //   String name = globals.name;
+  //   String iD = globals.iD;
+  //   String age = globals.age;
+  //   String gender = globals.gender;
+
+  //   List<dynamic> userInfo = [
+  //     'Name: $name \n ID: $iD \n Age: $age \n Gender: $gender \n'
+  //   ];
+  //   // First exam
+  //   int score1 = globals.score1;
+  //   int click = globals.click;
+  //   double time1 = globals.time1;
+  //   List<dynamic> firstExam = [
+  //     'First exam: \n Score = $score1 / $click \n Minimum time = $time1 \n'
+  //   ];
+  //   // Second exam
+  //   int score2 = globals.score2;
+  //   Duration time2 = globals.time2;
+  //   int numClickRight = globals.numClickOnRight;
+  //   List<dynamic> secondExam = [
+  //     'Second exam: \n Score = $score2 \n Minimum time = $time2 \n Number of times the user clicked on the right card = $numClickRight \n'
+  //   ];
+  //   // Third exam
+
+  //   temp.add(userInfo);
+  //   temp.add(firstExam);
+  //   temp.add(secondExam);
+
+  //   String csvData = const ListToCsvConverter().convert(temp);
+  //   var directory = await ExternalPath.getExternalStoragePublicDirectory(
+  //       ExternalPath.DIRECTORY_DOWNLOADS);
+  //   //print(directory);
+  //   //String? directory = (await getExternalStorageDirectory())?.path;
+  //   //(await getApplicationDocumentsDirectory()).path;
+  //   final path = "$directory/$iD.csv";
+  //   final File file = File(path);
+  //   await file.writeAsString(csvData);
+  // }

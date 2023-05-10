@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/End%20third%20test.dart';
+import 'package:project/End third test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +28,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
         ),
         body: Container(
             decoration: const BoxDecoration(
@@ -62,7 +62,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                     height: 50,
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 220, 180, 126),
+                      color: const Color.fromARGB(255, 220, 180, 126),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: const [
                         BoxShadow(
