@@ -15,6 +15,7 @@ class SettingBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       child: ListView(
         children: [
           const SizedBox(
@@ -24,10 +25,19 @@ class SettingBar extends StatelessWidget {
             leading: const Icon(Icons.looks_one_rounded),
             iconColor: Colors.grey,
             textColor: Colors.grey,
-            title: const Text('First Exam'),
+            title: const Text('First Exam',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra')),
             children: [
               const ListTile(
-                title: Text("Select the starting time (milliseconds):"),
+                title: Text(
+                  "Select the starting time (milliseconds):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
                 children: [
@@ -55,7 +65,10 @@ class SettingBar extends StatelessWidget {
               ),
               const ListTile(
                 title: Text(
-                    "Select the number of wrong answers before ending the test:"),
+                  "Select the number of wrong answers before ending the test:",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
                 children: [
@@ -85,11 +98,19 @@ class SettingBar extends StatelessWidget {
             leading: const Icon(Icons.looks_two_rounded),
             iconColor: Colors.grey,
             textColor: Colors.grey,
-            title: const Text('Second Exam'),
+            title: const Text('Second Exam',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra')),
             children: [
               const ListTile(
                 title: Text(
-                    "Select the number of games before ending the test (correct answers):"),
+                  "Select the number of games before ending the test (correct answers):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
                 children: [
@@ -116,7 +137,10 @@ class SettingBar extends StatelessWidget {
               ),
               const ListTile(
                 title: Text(
-                    "Select the number of wrong answers before ending the test:"),
+                  "Select the number of wrong answers before ending the test:",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
                 children: [
@@ -141,7 +165,11 @@ class SettingBar extends StatelessWidget {
                 ],
               ),
               const ListTile(
-                title: Text("Select the version of the Double game (1 or 2):"),
+                title: Text(
+                  "Select the version of the Double game (1 or 2):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
                 children: [
@@ -171,7 +199,12 @@ class SettingBar extends StatelessWidget {
             leading: const Icon(Icons.looks_3_rounded),
             iconColor: Colors.grey,
             textColor: Colors.grey,
-            title: const Text('Third Exam'),
+            title: const Text('Third Exam',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra')),
             children: [
               const ListTile(
                 title: Text(""),
@@ -228,10 +261,10 @@ class SettingBar extends StatelessWidget {
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(
-                height: 45,
-                width: 55,
+                height: 55,
+                width: 60,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Colors.blue[700]?.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const [
                     BoxShadow(
@@ -251,8 +284,8 @@ class SettingBar extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 17,
+                        fontFamily: 'Alkatra'),
                   ),
                 ),
               ),

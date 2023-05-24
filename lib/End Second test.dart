@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/End third test.dart';
 
+import 'Third Exam.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -54,8 +56,7 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const EndOfThirdTest()),
+                      MaterialPageRoute(builder: (context) => const LBulb()),
                     );
                   },
                   child: Container(
