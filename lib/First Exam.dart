@@ -86,25 +86,28 @@ class _Sides extends State<Sides> {
     print(side);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 220, 180, 126),
+        backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/back.png"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/background2.png"),
+              fit: BoxFit.cover),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 70),
             const Text(
-              "Choose your answer",
+              " Please choose your answer",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
+                  fontSize: 55,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Alkatra'),
             ),
+            const SizedBox(height: 30),
             Center(
               child: Stack(
                 children: [
@@ -121,6 +124,7 @@ class _Sides extends State<Sides> {
                 ],
               ),
             ),
+            const SizedBox(height: 80),
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -180,17 +184,16 @@ class _Sides extends State<Sides> {
                           height: 55,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 220, 180, 126),
+                            color: Colors.blue[300]?.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(
-                                  5.0,
-                                  5.0,
+                                color: Colors.black.withOpacity(0.5),
+                                offset: const Offset(
+                                  7.0,
+                                  7.0,
                                 ),
                                 blurRadius: 10.0,
-                                spreadRadius: 1.0,
                               ),
                             ],
                           ),
@@ -199,9 +202,10 @@ class _Sides extends State<Sides> {
                               'Left side',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 25,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Alkatra'),
                             ),
                           ),
                         ),
@@ -238,17 +242,16 @@ class _Sides extends State<Sides> {
                           height: 55,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 220, 180, 126),
+                            color: Colors.blue[300]?.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(
-                                  5.0,
-                                  5.0,
+                                color: Colors.black.withOpacity(0.5),
+                                offset: const Offset(
+                                  7.0,
+                                  7.0,
                                 ),
                                 blurRadius: 10.0,
-                                spreadRadius: 1.0,
                               ),
                             ],
                           ),
@@ -257,9 +260,10 @@ class _Sides extends State<Sides> {
                               'Did not see',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 25,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Alkatra'),
                             ),
                           ),
                         ),
@@ -310,17 +314,16 @@ class _Sides extends State<Sides> {
                           height: 55,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 220, 180, 126),
+                            color: Colors.blue[300]?.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(
-                                  5.0,
-                                  5.0,
+                                color: Colors.black.withOpacity(0.5),
+                                offset: const Offset(
+                                  7.0,
+                                  7.0,
                                 ),
                                 blurRadius: 10.0,
-                                spreadRadius: 1.0,
                               ),
                             ],
                           ),
@@ -329,9 +332,10 @@ class _Sides extends State<Sides> {
                               'Right side',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 25,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Alkatra'),
                             ),
                           ),
                         ),

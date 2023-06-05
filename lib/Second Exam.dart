@@ -55,25 +55,28 @@ class _Double extends State<Double> {
     globals.leftOrRight = 0;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
         ),
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/back.png"), fit: BoxFit.cover),
+                image: AssetImage("assets/images/background2.png"),
+                fit: BoxFit.cover),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(height: 100),
               const Text(
-                "Click on the only symbol on the left card that matches a symbol on the right card:",
+                " Please click on the only symbol on the left card that matches a symbol on the right card:",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra'),
               ),
+              const SizedBox(height: 20),
               Center(
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -90,8 +93,19 @@ class _Double extends State<Double> {
                           height: 400,
                           width: 400,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(500)),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(500),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                offset: const Offset(
+                                  7.0,
+                                  7.0,
+                                ),
+                                blurRadius: 10.0,
+                              ),
+                            ],
+                          ),
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -123,8 +137,19 @@ class _Double extends State<Double> {
                           height: 400,
                           width: 400,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(500)),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(500),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                offset: const Offset(
+                                  7.0,
+                                  7.0,
+                                ),
+                                blurRadius: 10.0,
+                              ),
+                            ],
+                          ),
                           child: Stack(
                             alignment: Alignment.center,
                             children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/End third test.dart';
+import 'package:project/Third%20exam%20explanation%20page.dart';
 
 import 'Third Exam.dart';
 
@@ -30,50 +31,52 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
         ),
         body: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/ExPageBackground.png"),
+                  image: AssetImage("assets/images/background1.png"),
                   fit: BoxFit.cover),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(height: 300),
                 const Center(
                   child: Text(
                     "You finished the second part",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Alkatra'),
                   ),
                 ),
+                const SizedBox(height: 80),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LBulb()),
+                      MaterialPageRoute(
+                          builder: (context) => const ThirdExplanationPage()),
                     );
                   },
                   child: Container(
                     height: 50,
                     width: 200,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 220, 180, 126),
+                      color: Colors.blue[300]?.withOpacity(0.8),
                       borderRadius: BorderRadius.circular(30),
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
-                          color: Colors.black,
-                          offset: Offset(
-                            5.0,
-                            5.0,
+                          color: Colors.black.withOpacity(0.5),
+                          offset: const Offset(
+                            7.0,
+                            7.0,
                           ),
                           blurRadius: 10.0,
-                          spreadRadius: 1.0,
                         ),
                       ],
                     ),
@@ -82,13 +85,14 @@ class _EndOfSecondTest extends State<EndOfSecondTest> {
                         'next part',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 30,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Alkatra'),
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             )));
   }

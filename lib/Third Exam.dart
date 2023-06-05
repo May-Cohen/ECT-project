@@ -28,13 +28,21 @@ class LBulb extends StatefulWidget {
 
 final stopwatchD = Stopwatch();
 final stopwatchR = Stopwatch();
-bool isChose = false;
+bool chosen1 = false;
+bool chosen2 = false;
+bool chosen3 = false;
+bool chosen4 = false;
+bool chosen5 = false;
+bool chosen6 = false;
+bool chosen7 = false;
+bool chosen8 = false;
 int ver = 0;
+List<int> lightsIndex = [];
+int tempIndex = 0;
 
 class _LBulb extends State<LBulb> {
   @override
   void initState() {
-    ver = oneOrThree();
     super.initState();
   }
 
@@ -42,32 +50,46 @@ class _LBulb extends State<LBulb> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 220, 180, 126),
+        backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/back.png"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/background2.png"),
+              fit: BoxFit.cover),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 60),
             const Text(
-              "Test explanation",
+              "Please click on the appropriate light's button",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 40,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Alkatra'),
             ),
+            const SizedBox(height: 30),
             Center(
               child: Container(
                 height: 500,
                 width: 810,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      offset: const Offset(
+                        7.0,
+                        7.0,
+                      ),
+                      blurRadius: 10.0,
+                    ),
+                  ],
+                ),
                 child: screenBuilding(
                   distance: 310.0,
                   // Center button
@@ -82,15 +104,55 @@ class _LBulb extends State<LBulb> {
                       child: GestureDetector(
                         // while long tap
                         onTapDown: (details) {
+                          // chose the number and the indexes of the lights to be turned
+                          ver = oneOrThree();
+                          lightsIndex = randomLights(ver);
+                          print(lightsIndex);
+                          // mark the lights that needs to be turned
+                          setState(() {
+                            for (int i = 0; i < lightsIndex.length; i++) {
+                              if (lightsIndex[i] == 1) {
+                                chosen1 = true;
+                              }
+                              if (lightsIndex[i] == 2) {
+                                chosen2 = true;
+                              }
+                              if (lightsIndex[i] == 3) {
+                                chosen3 = true;
+                              }
+                              if (lightsIndex[i] == 4) {
+                                chosen4 = true;
+                              }
+                              if (lightsIndex[i] == 5) {
+                                chosen5 = true;
+                              }
+                              if (lightsIndex[i] == 6) {
+                                chosen6 = true;
+                              }
+                              if (lightsIndex[i] == 7) {
+                                chosen7 = true;
+                              }
+                              if (lightsIndex[i] == 8) {
+                                chosen8 = true;
+                              }
+                            }
+                          });
                           // start the detection timer
                           stopwatchD.start();
-                          // when the player press the button we want to chose
-                          // the game version (1 or 3 lights) and light random light/lights
-                          if (ver == 1) {
-                          } else {}
                         },
                         // when the player release the button
                         onTapUp: (details) {
+                          // turn off the lights
+                          setState(() {
+                            chosen1 = false;
+                            chosen2 = false;
+                            chosen3 = false;
+                            chosen4 = false;
+                            chosen5 = false;
+                            chosen6 = false;
+                            chosen7 = false;
+                            chosen8 = false;
+                          });
                           // save the time of the detection time
                           stopwatchD.stop();
                           globals.detectionTime = stopwatchD.elapsed;
@@ -101,9 +163,7 @@ class _LBulb extends State<LBulb> {
                           globals.detectionTime = const Duration(seconds: 0);
                           globals.numOfTurn++;
                           print(globals.detectionTimes);
-                          // start the response timer
-                          // this timer will be closed when the player will press
-                          // the button of the correct light
+                          // update lights
                           stopwatchR.start();
                         },
                       ),
@@ -113,9 +173,8 @@ class _LBulb extends State<LBulb> {
                   buttonsFirstRow: [
                     TextButton(
                       onPressed: () {
-                        // check if it's the correct light
-                        // when it's the correct light stop the response time.
-                        print("clicked1");
+                        tempIndex = 1;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -127,7 +186,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked2");
+                        tempIndex = 2;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -139,7 +199,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked3");
+                        tempIndex = 3;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -151,7 +212,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked4");
+                        tempIndex = 4;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -163,7 +225,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked5");
+                        tempIndex = 5;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -175,7 +238,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked6");
+                        tempIndex = 6;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -187,7 +251,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked7");
+                        tempIndex = 7;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -199,7 +264,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print("clicked8");
+                        tempIndex = 8;
+                        checkTheAnswer(tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -213,53 +279,49 @@ class _LBulb extends State<LBulb> {
                   // the first 4 light
                   buttonsSecondRowHalf1: [
                     TextButton(
-                      onPressed: () {
-                        print("clicked1");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen1 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked2");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen2 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked3");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen3 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked4");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen4 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -268,53 +330,49 @@ class _LBulb extends State<LBulb> {
                   // the other 4 light
                   buttonsSecondRowHalf2: [
                     TextButton(
-                      onPressed: () {
-                        print("clicked5");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen5 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked6");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen6 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked7");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen7 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        print("clicked8");
-                      },
+                      onPressed: () {},
                       child: Container(
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color:
+                                chosen8 == true ? Colors.green : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -329,13 +387,6 @@ class _LBulb extends State<LBulb> {
     );
   }
 
-  Color turnLight(bool isChose) {
-    if (isChose == true) {
-      return Colors.green;
-    }
-    return Colors.white;
-  }
-
   int oneOrThree() {
     final rand = Random();
     List<int> a = [1, 3];
@@ -347,14 +398,26 @@ class _LBulb extends State<LBulb> {
     List<int> a = [1, 2, 3, 4, 5, 6, 7, 8];
     List<int> ans = [];
     if (ver == 1) {
-      ans[0] = a[rand.nextInt(a.length)];
+      int temp = a[rand.nextInt(a.length)];
+      ans.add(temp);
     } else {
-      ans[0] = a[rand.nextInt(a.length)];
-      a.remove(ans[0]);
-      ans[1] = a[rand.nextInt(a.length)];
-      a.remove(ans[1]);
-      ans[2] = a[rand.nextInt(a.length)];
+      int temp1 = a[rand.nextInt(a.length)];
+      a.remove(temp1);
+      ans.add(temp1);
+      int temp2 = a[rand.nextInt(a.length)];
+      a.remove(temp2);
+      ans.add(temp2);
+      int temp3 = a[rand.nextInt(a.length)];
+      ans.add(temp3);
     }
     return ans;
+  }
+
+  checkTheAnswer(int a) {
+    for (int i = 0; i < lightsIndex.length; i++) {
+      if (lightsIndex[i] == a) {
+        print("you are right");
+      }
+    }
   }
 }

@@ -68,12 +68,18 @@ flutter:
     - assets/images/left.png
     - assets/images/rightEx.png
     - assets/images/leftEx.png
-    - assets/images/loginPageBackground.png
-    - assets/images/ExPageBackground.png
-    - assets/images/back.png
-    - assets/images/DoubleExample.png
-    - assets/images/b3.png
-    - assets/images/b2.png
+    - assets/images/background1.png
+    - assets/images/background2.png
+    - assets/images/DoubleEx1.png
+    - assets/images/DoubleEx2.png
+    - assets/images/example1.png
+    - assets/images/example2.png
+    - assets/images/example3.png
+    - assets/images/FullShape.png
+    - assets/images/LeftShape.png
+    - assets/images/RightShape.png
+    - assets/images/FirstExam.png
+    - assets/images/SecondExam.png
 
   fonts:
     - family: Dosis

@@ -13,23 +13,27 @@ class _SecondExplanationPage extends State<SecondExplanationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
         ),
         body: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/ExPageBackground.png"),
+                  image: AssetImage("assets/images/background2.png"),
                   fit: BoxFit.cover),
             ),
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 75),
                   const Text(
-                    "In the next part you will be presented with 2 cards, each time you will have to click on the only common symbol between the two cards:",
+                    "Next, you will be presented with two cards and will be required to click in the left card \n on the symbol that is common to both cards:",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 35,
+                        fontFamily: 'Alkatra'),
                   ),
+                  const SizedBox(height: 30),
                   Center(
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -38,10 +42,16 @@ class _SecondExplanationPage extends State<SecondExplanationPage> {
                     children: [
                       SizedBox(
                         height: 400,
-                        child: Image.asset('assets/images/DoubleExample.png'),
+                        child: Image.asset('assets/images/DoubleEx1.png'),
+                      ),
+                      const SizedBox(width: 40),
+                      SizedBox(
+                        height: 400,
+                        child: Image.asset('assets/images/DoubleEx2.png'),
                       ),
                     ],
                   )),
+                  const SizedBox(height: 30),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -53,28 +63,28 @@ class _SecondExplanationPage extends State<SecondExplanationPage> {
                       height: 50,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 220, 180, 126),
+                        color: Colors.blue[300]?.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(30),
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
-                            color: Colors.black,
-                            offset: Offset(
-                              5.0,
-                              5.0,
+                            color: Colors.black.withOpacity(0.5),
+                            offset: const Offset(
+                              7.0,
+                              7.0,
                             ),
                             blurRadius: 10.0,
-                            spreadRadius: 1.0,
                           ),
                         ],
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           'Lets start',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
+                              color: Colors.black.withOpacity(0.9),
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Alkatra'),
                         ),
                       ),
                     ),

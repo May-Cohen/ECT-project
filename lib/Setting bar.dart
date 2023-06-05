@@ -15,7 +15,7 @@ class SettingBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.blue[600]?.withOpacity(0.5),
+      backgroundColor: Colors.blue[200]?.withOpacity(0.5),
       child: ListView(
         children: [
           const SizedBox(
@@ -261,10 +261,10 @@ class SettingBar extends StatelessWidget {
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(
-                height: 55,
-                width: 60,
+                height: 70,
+                width: 80,
                 decoration: BoxDecoration(
-                  color: Colors.blue[700]?.withOpacity(0.5),
+                  color: Color.fromARGB(255, 123, 191, 247).withOpacity(0.9),
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const [
                     BoxShadow(

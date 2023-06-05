@@ -1,6 +1,10 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
+class lights {
+  final bool isTurned = false;
+}
+
 class screenBuilding extends StatelessWidget {
   final List<Widget> buttonsFirstRow;
   final List<Widget> buttonsSecondRowHalf1;

@@ -13,12 +13,12 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 220, 180, 126),
+          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
         ),
         body: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/ExPageBackground.png"),
+                  image: AssetImage("assets/images/background2.png"),
                   fit: BoxFit.cover),
             ),
             child: Column(
@@ -26,9 +26,12 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
-                    "On the next screen you will have to choose which side you see, left or right:",
+                    "On the next screen, you will have the option to select left or right side:",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 35,
+                        fontFamily: 'Alkatra'),
                   ),
                   Center(
                       child: Row(
@@ -56,13 +59,17 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                       Text(
                         "Left side",
                         style: TextStyle(
-                            fontWeight: FontWeight.w900, fontSize: 35),
+                            fontWeight: FontWeight.w900,
+                            fontSize: 35,
+                            fontFamily: 'Alkatra'),
                       ),
                       SizedBox(width: 400),
                       Text(
                         "Right side",
                         style: TextStyle(
-                            fontWeight: FontWeight.w900, fontSize: 35),
+                            fontWeight: FontWeight.w900,
+                            fontSize: 35,
+                            fontFamily: 'Alkatra'),
                       ),
                     ],
                   ),
@@ -74,31 +81,31 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                       );
                     },
                     child: Container(
-                      height: 50,
+                      height: 60,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 220, 180, 126),
+                        color: Colors.blue[300]?.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(30),
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
-                            color: Colors.black,
-                            offset: Offset(
-                              5.0,
-                              5.0,
+                            color: Colors.black.withOpacity(0.5),
+                            offset: const Offset(
+                              7.0,
+                              7.0,
                             ),
                             blurRadius: 10.0,
-                            spreadRadius: 1.0,
                           ),
                         ],
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           'Lets start',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
+                              color: Colors.black.withOpacity(0.9),
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Alkatra'),
                         ),
                       ),
                     ),
