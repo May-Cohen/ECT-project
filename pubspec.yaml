@@ -80,6 +80,7 @@ flutter:
     - assets/images/RightShape.png
     - assets/images/FirstExam.png
     - assets/images/SecondExam.png
+    - assets/images/ThirdExam.png
 
   fonts:
     - family: Dosis
