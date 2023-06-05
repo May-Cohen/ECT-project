@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'globals.dart' as globals;
 
@@ -8,11 +10,20 @@ String show4 = '';
 String show5 = '';
 String show6 = '';
 String show7 = '';
+double drop1 = 60.0;
+int drop2 = 2;
+int drop3 = 5;
+int drop4 = 1;
+int drop5 = 1;
 
-class SettingBar extends StatelessWidget {
+class SettingBar extends StatefulWidget {
   const SettingBar({super.key});
 
   @override
+  State<SettingBar> createState() => _SettingBar();
+}
+
+class _SettingBar extends State<SettingBar> {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.blue[200]?.withOpacity(0.5),
@@ -40,22 +51,29 @@ class SettingBar extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    width: 45,
-                  ),
                   SizedBox(
-                    height: 50,
-                    width: 200,
                     child: DropdownButton<double>(
+                      value: drop1,
                       items: <double>[80, 75, 70, 65, 60, 55, 50]
                           .map((double value1) {
                         return DropdownMenuItem<double>(
                           value: value1,
-                          child: Text(value1.toString()),
+                          child: Text(
+                            value1.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
                         );
                       }).toList(),
                       onChanged: (value1) {
+                        setState(() {
+                          drop1 = value1!;
+                        });
                         globals.time1 = value1!;
                         globals.init = value1;
                       },
@@ -71,21 +89,28 @@ class SettingBar extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    width: 45,
-                  ),
                   SizedBox(
-                    height: 50,
-                    width: 200,
                     child: DropdownButton<int>(
+                      value: drop2,
                       items: <int>[5, 4, 3, 2, 1].map((int value2) {
                         return DropdownMenuItem<int>(
                           value: value2,
-                          child: Text(value2.toString()),
+                          child: Text(
+                            value2.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
                         );
                       }).toList(),
                       onChanged: (value2) {
+                        setState(() {
+                          drop2 = value2!;
+                        });
                         globals.numOfWrongAnswers1 = value2!;
                       },
                     ),
@@ -113,22 +138,29 @@ class SettingBar extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    width: 45,
-                  ),
                   SizedBox(
-                    height: 50,
-                    width: 200,
                     child: DropdownButton<int>(
+                      value: drop3,
                       items: <int>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
                           .map((int value3) {
                         return DropdownMenuItem<int>(
                           value: value3,
-                          child: Text(value3.toString()),
+                          child: Text(
+                            value3.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
                         );
                       }).toList(),
                       onChanged: (value3) {
+                        setState(() {
+                          drop3 = value3!;
+                        });
                         globals.numOfGames = value3!;
                       },
                     ),
@@ -143,21 +175,28 @@ class SettingBar extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    width: 45,
-                  ),
                   SizedBox(
-                    height: 50,
-                    width: 200,
                     child: DropdownButton<int>(
+                      value: drop4,
                       items: <int>[5, 4, 3, 2, 1].map((int value4) {
                         return DropdownMenuItem<int>(
                           value: value4,
-                          child: Text(value4.toString()),
+                          child: Text(
+                            value4.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
                         );
                       }).toList(),
                       onChanged: (value4) {
+                        setState(() {
+                          drop4 = value4!;
+                        });
                         globals.numOfWrongAnswers2 = value4!;
                       },
                     ),
@@ -172,21 +211,28 @@ class SettingBar extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    width: 45,
-                  ),
                   SizedBox(
-                    height: 50,
-                    width: 200,
                     child: DropdownButton<int>(
+                      value: drop5,
                       items: <int>[1, 2].map((int value5) {
                         return DropdownMenuItem<int>(
                           value: value5,
-                          child: Text(value5.toString()),
+                          child: Text(
+                            value5.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
                         );
                       }).toList(),
                       onChanged: (value5) {
+                        setState(() {
+                          drop5 = value5!;
+                        });
                         globals.version = value5!;
                       },
                     ),
