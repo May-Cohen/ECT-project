@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:project/End%20third%20test.dart';
 import 'Screen building third test.dart';
 import 'globals.dart' as globals;
 
@@ -37,7 +38,6 @@ bool chosen6 = false;
 bool chosen7 = false;
 bool chosen8 = false;
 int ver = 0;
-List<int> lightsIndex = [];
 int tempIndex = 0;
 
 class _LBulb extends State<LBulb> {
@@ -105,34 +105,44 @@ class _LBulb extends State<LBulb> {
                         // while long tap
                         onTapDown: (details) {
                           // chose the number and the indexes of the lights to be turned
+                          globals.GameNumber--;
+                          if (globals.GameNumber == 0) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const EndOfThirdTest()));
+                          }
                           ver = oneOrThree();
-                          lightsIndex = randomLights(ver);
-                          print(lightsIndex);
+                          globals.lightsIndex = randomLights(ver);
+                          print(globals.lightsIndex);
                           // mark the lights that needs to be turned
                           setState(() {
-                            for (int i = 0; i < lightsIndex.length; i++) {
-                              if (lightsIndex[i] == 1) {
+                            for (int i = 0;
+                                i < globals.lightsIndex.length;
+                                i++) {
+                              if (globals.lightsIndex[i] == 1) {
                                 chosen1 = true;
                               }
-                              if (lightsIndex[i] == 2) {
+                              if (globals.lightsIndex[i] == 2) {
                                 chosen2 = true;
                               }
-                              if (lightsIndex[i] == 3) {
+                              if (globals.lightsIndex[i] == 3) {
                                 chosen3 = true;
                               }
-                              if (lightsIndex[i] == 4) {
+                              if (globals.lightsIndex[i] == 4) {
                                 chosen4 = true;
                               }
-                              if (lightsIndex[i] == 5) {
+                              if (globals.lightsIndex[i] == 5) {
                                 chosen5 = true;
                               }
-                              if (lightsIndex[i] == 6) {
+                              if (globals.lightsIndex[i] == 6) {
                                 chosen6 = true;
                               }
-                              if (lightsIndex[i] == 7) {
+                              if (globals.lightsIndex[i] == 7) {
                                 chosen7 = true;
                               }
-                              if (lightsIndex[i] == 8) {
+                              if (globals.lightsIndex[i] == 8) {
                                 chosen8 = true;
                               }
                             }
@@ -414,10 +424,15 @@ class _LBulb extends State<LBulb> {
   }
 
   checkTheAnswer(int a) {
-    for (int i = 0; i < lightsIndex.length; i++) {
-      if (lightsIndex[i] == a) {
+    if (globals.lightsIndex.length == 1) {
+      if (globals.lightsIndex[0] == a) {
         print("you are right");
+        globals.score3++;
       }
+    } else {
+      int b = globals.lightsIndex[0];
+      int c = globals.lightsIndex[1];
+      int d = globals.lightsIndex[2];
     }
   }
 }

@@ -102,6 +102,7 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
   Future<String> createFolder() async {
     String temp =
         '${(Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationSupportDirectory())!.path}/${globals.iD}';
+    print(temp);
     final directory = Directory(temp);
     var per = await Permission.storage.status;
     if (!per.isGranted) {
@@ -173,5 +174,12 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
 
   createThirdExam() async {
     final file = await createFile3;
+    for (int i = 0; i < globals.numOfTurn; i++) {
+      await file.writeAsString(
+          "${i + 1}th  round: \n The indexes of the lights turned: ${globals.lightsIndex[i]} \n The detection time: ${globals.detectionTimes[i + 1]} \n The response time: ${globals.responseTimes[i + 1]}  \n \n",
+          mode: FileMode.append);
+    }
+    file.writeAsString("Total correct answers: ${globals.score3} \n",
+        mode: FileMode.append);
   }
 }

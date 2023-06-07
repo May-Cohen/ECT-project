@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'globals.dart' as globals;
 
 double show1 = 0;
@@ -15,6 +16,7 @@ int drop2 = 2;
 int drop3 = 5;
 int drop4 = 1;
 int drop5 = 1;
+int drop6 = 5;
 
 class SettingBar extends StatefulWidget {
   const SettingBar({super.key});
@@ -74,8 +76,6 @@ class _SettingBar extends State<SettingBar> {
                         setState(() {
                           drop1 = value1!;
                         });
-                        globals.time1 = value1!;
-                        globals.init = value1;
                       },
                     ),
                   ),
@@ -111,7 +111,6 @@ class _SettingBar extends State<SettingBar> {
                         setState(() {
                           drop2 = value2!;
                         });
-                        globals.numOfWrongAnswers1 = value2!;
                       },
                     ),
                   ),
@@ -161,7 +160,6 @@ class _SettingBar extends State<SettingBar> {
                         setState(() {
                           drop3 = value3!;
                         });
-                        globals.numOfGames = value3!;
                       },
                     ),
                   ),
@@ -197,7 +195,6 @@ class _SettingBar extends State<SettingBar> {
                         setState(() {
                           drop4 = value4!;
                         });
-                        globals.numOfWrongAnswers2 = value4!;
                       },
                     ),
                   ),
@@ -233,7 +230,6 @@ class _SettingBar extends State<SettingBar> {
                         setState(() {
                           drop5 = value5!;
                         });
-                        globals.version = value5!;
                       },
                     ),
                   ),
@@ -253,43 +249,36 @@ class _SettingBar extends State<SettingBar> {
                     fontFamily: 'Alkatra')),
             children: [
               const ListTile(
-                title: Text(""),
+                title: Text(
+                  "Select the number of games before ending the test:",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
               ),
               Row(
-                children: const [
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   SizedBox(
-                    width: 45,
-                  ),
-                  SizedBox(
-                    height: 50,
-                    width: 200,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      // onChanged: () {
-                      // },
-                    ),
-                  ),
-                ],
-              ),
-              const ListTile(
-                title: Text(""),
-              ),
-              Row(
-                children: const [
-                  SizedBox(
-                    width: 45,
-                  ),
-                  SizedBox(
-                    height: 50,
-                    width: 200,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      // onChanged: () {
-                      // },
+                    child: DropdownButton<int>(
+                      value: drop6,
+                      items: <int>[1, 2, 3, 4, 5].map((int value6) {
+                        return DropdownMenuItem<int>(
+                          value: value6,
+                          child: Text(
+                            value6.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value6) {
+                        setState(() {
+                          drop6 = value6!;
+                        });
+                      },
                     ),
                   ),
                 ],
@@ -304,6 +293,13 @@ class _SettingBar extends State<SettingBar> {
             width: 55,
             child: TextButton(
               onPressed: () {
+                globals.time1 = drop1;
+                globals.init = drop1;
+                globals.numOfWrongAnswers1 = drop2;
+                globals.numOfGames = drop3;
+                globals.numOfWrongAnswers2 = drop4;
+                globals.version = drop5;
+                globals.GameNumber = drop6;
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(

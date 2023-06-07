@@ -85,84 +85,66 @@ class _Double extends State<Double> {
                       const SizedBox(
                         width: 15,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          globals.leftOrRight = 1;
-                        },
-                        child: Container(
-                          height: 400,
-                          width: 400,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(500),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                offset: const Offset(
-                                  7.0,
-                                  7.0,
-                                ),
-                                blurRadius: 10.0,
+                      Container(
+                        height: 400,
+                        width: 400,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(500),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.5),
+                              offset: const Offset(
+                                7.0,
+                                7.0,
                               ),
-                            ],
-                          ),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              // Templates1.firstTemplate(cardA)[0],
-                              // Templates1.firstTemplate(cardA)[1],
-                              // Templates1.firstTemplate(cardA)[2],
-                              // Templates1.firstTemplate(cardA)[3],
-                              // Templates1.firstTemplate(cardA)[4],
-                              // Templates1.firstTemplate(cardA)[5],
-                              // Templates1.firstTemplate(cardA)[6],
-                              // Templates1.firstTemplate(cardA)[7],
-                              templateA[0],
-                              templateA[1],
-                              templateA[2],
-                              templateA[3],
-                              templateA[4],
-                              templateA[5],
-                              templateA[6],
-                              templateA[7],
-                            ],
-                          ),
+                              blurRadius: 10.0,
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            templateA[0],
+                            templateA[1],
+                            templateA[2],
+                            templateA[3],
+                            templateA[4],
+                            templateA[5],
+                            templateA[6],
+                            templateA[7],
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          globals.leftOrRight = 2;
-                        },
-                        child: Container(
-                          height: 400,
-                          width: 400,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(500),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                offset: const Offset(
-                                  7.0,
-                                  7.0,
-                                ),
-                                blurRadius: 10.0,
+                      Container(
+                        height: 400,
+                        width: 400,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(500),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.5),
+                              offset: const Offset(
+                                7.0,
+                                7.0,
                               ),
-                            ],
-                          ),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              templateB[0],
-                              templateB[1],
-                              templateB[2],
-                              templateB[3],
-                              templateB[4],
-                              templateB[5],
-                              templateB[6],
-                              templateB[7],
-                            ],
-                          ),
+                              blurRadius: 10.0,
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            templateB[0],
+                            templateB[1],
+                            templateB[2],
+                            templateB[3],
+                            templateB[4],
+                            templateB[5],
+                            templateB[6],
+                            templateB[7],
+                          ],
                         ),
                       ),
                       const SizedBox(

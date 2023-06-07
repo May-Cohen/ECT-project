@@ -28,7 +28,7 @@ Duration time2 = const Duration(
     seconds:
         0); // the time passed from when the student saw the cards until he pressed a button.
 int version = 1; // Double game version 1 or 2.
-int leftOrRight = 0;
+int leftOrRight = 0; // 1 left 2 right
 int numClickOnRight = 0;
 // third test
 bool lightTurn = false; // the lights in the third test.
@@ -40,3 +40,6 @@ Duration detectionTime = const Duration(seconds: 0);
 Duration responseTime = const Duration(seconds: 0);
 int numOfTurn = 1; // number of plays.
 int OneOrThree = 1;
+int score3 = 0; // num of correct answers Third exam
+List<int> lightsIndex = [];
+int GameNumber = 5;
