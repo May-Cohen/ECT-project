@@ -13,7 +13,6 @@ application saves the participant's data and analyzes the results.
   - [Second Exam: Double game](#second-exam-double-game)
   - [Third Exam](#third-exam)
   - [Application outputs](#application-outputs)
-  - [Information analysis](#information-analysis)
 
 $~$
 
@@ -37,7 +36,7 @@ $~$
 
 $~$
 
-The user will have to choose which the direction of the shape he saw.
+The user will have to choose which the direction of the shape he saw. For each round we save the time that the shape presented and the correctness of the answer. 
 
 $~$
 
@@ -45,29 +44,20 @@ $~$
 
 $~$
 
-The user will be presented with the choice again, but the amount of time he is exposed to it will decrease if he made the correct choice.
-
-$~$
-
-**Exam outputs :**
+The user will be presented with the choice again, but the amount of time he is exposed to it will decrease if he made the correct choice. If the user was wrong the time will increase and the exam will continue.
 
 $~$
 
 ## Second Exam: Double game
 ---
 
-**Exam explanation :** In this exam, the user is presented with two cards, each of which has only one common symbol. The user needs to identify the common symbol and press on it as quickly as possible.
+**Exam explanation :** In this exam, the user is presented with two cards, each of which has only one common symbol. The user needs to identify the common symbol and press on it as quickly as possible. For each round we save the identification time of the user and the side of the card he pressed on. 
 
 $~$
 
 ![](assets/images/SecondExam.png)
 
 $~$
-
-**Exam outputs :**
-
-$~$
-
 
 ## Third Exam
 ---
@@ -93,19 +83,9 @@ $~$
 
 $~$
 
-**Exam outputs :**
-
-$~$
-
 ## Application outputs
 ---
-When the user finishes all the exams, the application creates a folder with three files including the exams results of the user.
+When the user finishes all the exams, the application creates a folder with four files including the user information and the exams results of the user.
 These results will be used for analyzation.
 
 $~$
-
-## Information analysis
----
-
-$~$
-
