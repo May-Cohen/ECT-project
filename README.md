@@ -4,20 +4,17 @@ A flutter application that will be used to diagnose students and analyze data.
 This application consists of three thinking exercises; each exercise tests the student's abilities from different aspects. The
 application saves the participant's data and analyzes the results.
 
-## Table of context
----
-
 - [ECT Project](#ect-project)
-  - [Table of context](#table-of-context)
   - [First Exam](#first-exam)
   - [Second Exam: Double game](#second-exam-double-game)
   - [Third Exam](#third-exam)
   - [Application outputs](#application-outputs)
+  - [Data Analysis](#data-analysis)
 
 $~$
 
 ## First Exam
----
+
 
 **Exam explanation :** In this exam, an "open" shape appears for several milliseconds (right side shape or left side shape).
 
@@ -49,7 +46,7 @@ The user will be presented with the choice again, but the amount of time he is e
 $~$
 
 ## Second Exam: Double game
----
+
 
 **Exam explanation :** In this exam, the user is presented with two cards, each of which has only one common symbol. The user needs to identify the common symbol and press on it as quickly as possible. For each round we save the identification time of the user and the side of the card he pressed on. 
 
@@ -60,7 +57,7 @@ $~$
 $~$
 
 ## Third Exam
----
+
 **Exam explanation :** In this exam, the user is required to identify the lightning of the light bulbs and press the appropriate light bulb's button: 
 
 $~$
@@ -84,8 +81,14 @@ $~$
 $~$
 
 ## Application outputs
----
+
 When the user finishes all the exams, the application creates a folder with four files including the user information and the exams results of the user.
 These results will be used for analyzation.
+
+
+$~$
+
+## Data Analysis
+
 
 $~$

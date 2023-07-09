@@ -43,6 +43,7 @@ dependencies:
   cron: ^0.5.1
   get: ^4.6.5
   external_path: ^1.0.3
+  firebase_core: ^2.14.0
 
 dev_dependencies:
   flutter_test:
