@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 10),
                   Container(
-                    height: 500,
+                    height: 460,
                     width: 400,
                     decoration: BoxDecoration(
                       color:
@@ -173,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                               },
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 20),
                           SizedBox(
                             child: TextButton(
                               onPressed: () {

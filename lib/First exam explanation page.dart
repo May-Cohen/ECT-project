@@ -22,17 +22,18 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                   fit: BoxFit.cover),
             ),
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 60),
                   const Text(
-                    "On the next screen, you will have the option to select left or right side:",
+                    "On the next screen, one of two shapes will be presented to you for a very short time:",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w900,
-                        fontSize: 35,
+                        fontSize: 30,
                         fontFamily: 'Alkatra'),
                   ),
+                  const SizedBox(height: 30),
                   Center(
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -40,14 +41,14 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(
-                        height: 300,
+                        height: 110,
                         child: Image.asset('assets/images/leftEx.png'),
                       ),
                       const SizedBox(
                         width: 300,
                       ),
                       SizedBox(
-                        height: 300,
+                        height: 110,
                         child: Image.asset('assets/images/rightEx.png'),
                       ),
                     ],
@@ -55,24 +56,48 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
-                      SizedBox(width: 300),
+                      SizedBox(width: 400),
                       Text(
                         "Left side",
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontSize: 35,
+                            fontSize: 30,
                             fontFamily: 'Alkatra'),
                       ),
-                      SizedBox(width: 400),
+                      SizedBox(width: 270),
                       Text(
                         "Right side",
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontSize: 35,
+                            fontSize: 30,
                             fontFamily: 'Alkatra'),
                       ),
                     ],
                   ),
+                  const SizedBox(height: 25),
+                  const Text(
+                    "After this time the shape will change into this shape:",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 30,
+                        fontFamily: 'Alkatra'),
+                  ),
+                  const SizedBox(height: 30),
+                  SizedBox(
+                    height: 100,
+                    child: Image.asset('assets/images/FullShape.png'),
+                  ),
+                  const SizedBox(height: 40),
+                  const Text(
+                    "You will need to choose what was the side of the shape before it changed.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 30,
+                        fontFamily: 'Alkatra'),
+                  ),
+                  const SizedBox(height: 40),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
