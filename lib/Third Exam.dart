@@ -134,16 +134,16 @@ class _LBulb extends State<LBulb> {
                                 chosen4 = true;
                               }
                               if (globals.lightsIndex[i] == 5) {
-                                chosen5 = true;
+                                chosen8 = true;
                               }
                               if (globals.lightsIndex[i] == 6) {
-                                chosen6 = true;
-                              }
-                              if (globals.lightsIndex[i] == 7) {
                                 chosen7 = true;
                               }
+                              if (globals.lightsIndex[i] == 7) {
+                                chosen6 = true;
+                              }
                               if (globals.lightsIndex[i] == 8) {
-                                chosen8 = true;
+                                chosen5 = true;
                               }
                             }
                           });
@@ -424,15 +424,52 @@ class _LBulb extends State<LBulb> {
   }
 
   checkTheAnswer(int a) {
+    // only one light
     if (globals.lightsIndex.length == 1) {
       if (globals.lightsIndex[0] == a) {
         print("you are right");
         globals.score3++;
       }
     } else {
+      // Three lights
+      int ans = 0;
       int b = globals.lightsIndex[0];
       int c = globals.lightsIndex[1];
       int d = globals.lightsIndex[2];
+      int tempMax = max(b, c);
+      int maxIndex = max(tempMax, d);
+
+      // Three adjacent lights - the answer will be the rightmost light
+      if ((b - c).abs() == 1 && (b - d).abs() == 1 && (c - d).abs() == 1) {
+        ans = maxIndex;
+      }
+
+      // Two adjacent lights and one distant
+      if ((b - d).abs() != 1 && (c - d).abs() != 1 && (b - c).abs() == 1) {
+        //bc \ cb adjacent
+        ans = d;
+      }
+      if ((b - c).abs() != 1 && (b - d).abs() != 1 && (c - d).abs() == 1) {
+        //cd \ dc adjacent
+        ans = b;
+      }
+      if ((b - c).abs() != 1 && (c - d).abs() != 1 && (b - d).abs() == 1) {
+        //bd \ db adjacent
+        ans = c;
+      }
+
+      // Three remote lights - the answer will be the rightmost light
+      if ((b - c).abs() != 1 && (b - d).abs() != 1 && (c - d).abs() != 1) {
+        ans = maxIndex;
+      }
+
+      // check the correctness of the choice
+      if (ans == a) {
+        print("you are right");
+        globals.score3++;
+      } else {
+        print("you are wrong");
+      }
     }
   }
 }

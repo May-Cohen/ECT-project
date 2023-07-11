@@ -28,9 +28,6 @@ class Double extends StatefulWidget {
 }
 
 IconData icon = Icons.abc;
-//int score2 = 0;
-//int numOfWrongAnswers2 = 1;
-// int numOfGames = 5;
 final stopwatch = Stopwatch();
 
 class _Double extends State<Double> {

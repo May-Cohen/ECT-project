@@ -17,7 +17,7 @@ int score1 = 0; // num of correct answers first exam.
 double init = 60;
 double time1 = 60; // milliseconds.
 int numOfWrongAnswers1 = 2;
-// second test
+// second exam
 int score2 = 0; // num of correct answers second exam.
 List<bool> roundsBool = [];
 List<Duration> rountimes = [];
@@ -30,7 +30,7 @@ Duration time2 = const Duration(
 int version = 1; // Double game version 1 or 2.
 int leftOrRight = 0; // 1 left 2 right
 int numClickOnRight = 0;
-// third test
+// third exam
 bool lightTurn = false; // the lights in the third test.
 Map<int, Duration> detectionTimes =
     {}; // each turn (1,2,3...) has it's detection time.
