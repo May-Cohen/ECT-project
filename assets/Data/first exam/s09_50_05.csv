@@ -1,0 +1,3 @@
+,Trial,Task_N,Cong_N,Type,TaskType,CongType,Cue,Color,ArrowDirectionRed=Right,ArrowDirectionRed=Left,Move Time[ms],Descision TIme[ms],X pos,Y pos,Is Green Right?,Current Time,Tester Name,Kindergarden Name,Is  Circle Right?,Name,KinderGarden Name,Age,Is Boy?,Is Right?
+0,1,Arrow,Cong,,,,arrow,Red,right,left,-71096700,1462368900,1286.0,439.0,,2021-06-03 09:50:14.852035,<kivy.uix.textinput.TextInput object at 0x0000016EB8DCA4A0>,,1.0,s,<kivy.uix.textinput.TextInput object at 0x0000016EB8DCAA50>,7,False,False
+1,2,Color,Cong,ST_SC,S,S,rainbow,Red,right,left,-105919600,1400862900,191.0,460.00000000000006,,2021-06-03 09:50:19.598914,<kivy.uix.textinput.TextInput object at 0x0000016EB8DCA4A0>,,1.0,s,<kivy.uix.textinput.TextInput object at 0x0000016EB8DCAA50>,7,False,False
