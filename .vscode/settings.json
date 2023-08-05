@@ -1,4 +1,8 @@
 {
   "git.ignoreLimitWarning": true,
-  "cSpell.words": ["addline", "ARGB"]
+  "cSpell.words": ["addline", "ARGB"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "python.formatting.provider": "none"
 }
