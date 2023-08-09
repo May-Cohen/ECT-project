@@ -1,0 +1,14 @@
+,Tone,Cue_Location,Arrow_Location,Validity,Arrow_Direction,Arrow_Color,Congruency,Correct_Resp_Color_Inst,Correct_Resp_Arrow_Inst,Unnamed: 9,Unnamed: 10,Move Time[ms],Descision TIme[ms],X pos,Y pos,Is Green Right?,Current Time,Tester Name,Kindergarden Name,Is  Circle Right?,Name,KinderGarden Name,Age,Is Boy?,Is Right?
+73,1,up,up,1,right,green,0,left,right,,,-82629400,2086069900,192.0,441.0,,2021-06-03 09:47:02.326107,n,,0.0,ss,s,6,False,False
+22,0,down,up,0,left,green,1,left,left,,,-137846900,2505732200,185.00000000000003,452.0,,2021-06-03 09:47:28.897875,n,,0.0,ss,s,6,False,False
+23,0,down,up,0,left,green,1,left,left,,,4066453500,-279788000,686.9999999999999,128.99999999999997,,2021-06-03 09:47:42.191497,n,,0.0,ss,s,6,False,False
+14,0,up,down,0,right,red,1,right,right,,,12393743200,-2144984400,689.0,114.99999999999997,,2021-06-03 09:48:01.648807,n,,0.0,ss,s,6,False,False
+78,1,down,down,1,right,green,0,left,right,,,2362819200,1249526000,686.9999999999999,102.99999999999997,,2021-06-03 09:48:11.270058,n,,0.0,ss,s,6,False,False
+25,0,up,up,1,right,green,0,left,right,,,-179920700,1511058900,178.0,432.00000000000006,,2021-06-03 09:48:19.910611,n,,0.0,ss,s,6,False,False
+38,0,up,up,1,right,red,1,right,right,,,10578554500,-2083743700,697.0000000000001,107.0,,2021-06-03 09:48:39.844125,n,,0.0,ss,s,6,False,False
+1,0,up,down,0,right,green,0,left,right,,,-146078400,1947446700,180.0,449.0,,2021-06-03 09:48:53.170907,n,,0.0,ss,s,6,False,False
+67,1,down,up,0,right,red,1,right,right,,,697956900,963359700,1281.0,459.00000000000006,,2021-06-03 09:49:01.394060,n,,0.0,ss,s,6,False,False
+49,1,up,down,0,right,green,0,left,right,,,1910429900,-1866186500,681.0,125.00000000000004,,2021-06-03 09:49:06.179539,n,,0.0,ss,s,6,False,False
+72,1,up,up,1,right,green,0,left,right,,,-60058700,1348290400,182.0,439.0,,2021-06-03 09:49:11.099686,n,,0.0,ss,s,6,False,False
+18,0,down,up,0,right,red,1,right,right,,,-69747100,1290660300,1265.0,453.0,,2021-06-03 09:49:16.092306,n,,0.0,ss,s,6,False,False
+16,0,up,down,0,left,green,1,left,left,,,-82069300,1322690300,157.0,448.0,,2021-06-03 09:49:20.602614,n,,0.0,ss,s,6,False,False

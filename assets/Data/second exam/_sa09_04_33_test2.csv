@@ -1,0 +1,5 @@
+,Tone,Cue_Location,Arrow_Location,Validity,Arrow_Direction,Arrow_Color,Congruency,Correct_Resp_Color_Inst,Correct_Resp_Arrow_Inst,Unnamed: 9,Unnamed: 10,Move Time[ms],Descision TIme[ms],X pos,Y pos,Is Green Right?,Current Time,Tester Name,Kindergarden Name,Is  Circle Right?,Name,KinderGarden Name,Age,Is Boy?,Is Right?
+44,0,down,down,1,right,red,1,right,right,,,-84322500,3600924000,829.0,703.0,,2021-07-05 09:05:36.703103,sa,,0.0, sa,eh,6,True,True
+85,1,up,up,1,right,red,1,right,right,,,-99304700,1664013600,792.0,694.0,,2021-07-05 09:05:41.926090,sa,,0.0, sa,eh,6,True,True
+12,0,up,down,0,right,red,1,right,right,,,-85332100,1470695600,803.0,708.0,,2021-07-05 09:05:46.408102,sa,,0.0, sa,eh,6,True,True
+56,1,down,up,0,right,green,0,left,right,,,-82722400,2143742600,123.0,730.0,,2021-07-05 09:05:51.586958,sa,,0.0, sa,eh,6,True,True

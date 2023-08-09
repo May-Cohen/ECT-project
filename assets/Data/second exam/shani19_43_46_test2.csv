@@ -1,0 +1,4 @@
+,Tone,Cue_Location,Arrow_Location,Validity,Arrow_Direction,Arrow_Color,Congruency,Correct_Resp_Color_Inst,Correct_Resp_Arrow_Inst,Unnamed: 9,Unnamed: 10,Move Time[ms],Descision TIme[ms],X pos,Y pos,Current Time,Tester Name,Kindergarden Name,Test Type,Is Green Circle Right?,Name,Age,Is Boy?,Is Right?,Is hand lifted too early
+13,0,up,down,0,right,red,0,left,right,,,737188900,525880700,175.0,465.0,2021-04-26 19:44:00.196138,,,2,no,shani,27,False,True,False
+10,0,down,up,0,left,red,1,left,left,,,1290422200,584066000,1235.0,470.99999999999994,2021-04-26 19:44:11.645724,,,2,no,shani,27,False,True,False
+73,1,up,up,1,right,green,1,right,right,,,624182800,674131800,172.0,470.99999999999994,2021-04-26 19:44:20.089026,,,2,no,shani,27,False,True,False

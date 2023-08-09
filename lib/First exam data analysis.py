@@ -9,6 +9,7 @@ from os import listdir
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 import re
+import pprint
 
 
 class FirstExamAnalysis:
@@ -33,6 +34,7 @@ class FirstExamAnalysis:
         name = dict[0].get("Name")
         genderTemp = dict[0].get("Is Boy?")
         num_of_negative_trails = 0
+        num_of_trails = []
         a = []
         if (genderTemp == "TRUE" or genderTemp == "True"):
             gender = "Boy"
@@ -41,11 +43,10 @@ class FirstExamAnalysis:
         right_handed = dict[0].get("Is Right?")
         age = dict[0].get("Age")
         for i in range(len(dict)):
+            num_of_trails.append(float(dict[i].get("Trial")))
             if (float(dict[i].get("Descision TIme[ms]")) < 0):
                 num_of_negative_trails = num_of_negative_trails+1
-        num_of_trails = float(
-            dict[len(dict)].get("Trial"))-num_of_negative_trails
-        return name, gender, right_handed, age, num_of_trails
+        return name, gender, right_handed, age, max(num_of_trails)-num_of_negative_trails
 
     # calculate data for one file of one participant
     def calculate_data(self, file: str):
@@ -61,33 +62,37 @@ class FirstExamAnalysis:
                 dict[i].get("X pos")) < 1000 else "right"
             green_color_side = "right" if dict[i].get(
                 "Is  Circle Right?") == "1" else "left"
-            if dict[i].get("Task_N") == "Arrow":
-                if arrow_direction == "right" and choice_side == "right":
-                    if (float(dict[i].get("Descision TIme[ms]")) > 0):
-                        decision_time_correct_answer_arrow_task.append(
-                            float(dict[i].get("Descision TIme[ms]")))
-                else:
-                    if (float(dict[i].get("Descision TIme[ms]")) > 0):
-                        decision_time_wrong_answer_arrow_task.append(
-                            float(dict[i].get("Descision TIme[ms]")))
-            if dict[i].get("Task_N") == "Color":
-                if arrow_color == "Green" and choice_side == "right" and green_color_side == "right":
-                    if (float(dict[i].get("Descision TIme[ms]")) > 0):
-                        decision_time_correct_answer_color_task.append(
-                            float(dict[i].get("Descision TIme[ms]")))
-                else:
-                    if (float(dict[i].get("Descision TIme[ms]")) > 0):
-                        decision_time_wrong_answer_color_task.append(
-                            float(dict[i].get("Descision TIme[ms]")))
 
-            Average_decision_time_correct_answer_arrow_task = 0 if decision_time_correct_answer_arrow_task == [
-            ] else np.average(decision_time_correct_answer_arrow_task)
-            Average_decision_time_wrong_answer_arrow_task = 0 if decision_time_wrong_answer_arrow_task == [
-            ] else np.average(decision_time_wrong_answer_arrow_task)
-            Average_decision_time_correct_answer_color_task = 0 if decision_time_correct_answer_color_task == [
-            ] else np.average(decision_time_correct_answer_color_task)
-            Average_decision_time_wrong_answer_color_task = 0 if decision_time_wrong_answer_color_task == [
-            ] else np.average(decision_time_wrong_answer_color_task)
+            # Arrow task correctness
+            if dict[i].get("Task_N") == "Arrow":
+                if (arrow_direction == "right" and choice_side == "right") or (arrow_direction == "left" and choice_side == "left"):
+                    if (float(dict[i].get("Descision TIme[ms]")) > 0) and (float(dict[i].get("Descision TIme[ms]")) < 9999999999):
+                        decision_time_correct_answer_arrow_task.append(
+                            float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
+                else:
+                    if (float(dict[i].get("Descision TIme[ms]")) > 0) and (float(dict[i].get("Descision TIme[ms]")) < 9999999999):
+                        decision_time_wrong_answer_arrow_task.append(
+                            float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
+
+            # Color task correctness
+            if dict[i].get("Task_N") == "Color":
+                if (arrow_color == "Green" and choice_side == "right" and green_color_side == "right") or (arrow_color == "Green" and choice_side == "left" and green_color_side == "left") or (arrow_color == "Red" and choice_side == "left" and green_color_side == "right") or (arrow_color == "Red" and choice_side == "right" and green_color_side == "left"):
+                    if (float(dict[i].get("Descision TIme[ms]")) > 0) and (float(dict[i].get("Descision TIme[ms]")) < 9999999999):
+                        decision_time_correct_answer_color_task.append(
+                            float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
+                else:
+                    if (float(dict[i].get("Descision TIme[ms]")) > 0) and (float(dict[i].get("Descision TIme[ms]")) < 9999999999):
+                        decision_time_wrong_answer_color_task.append(
+                            float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
+
+        Average_decision_time_correct_answer_arrow_task = 0 if decision_time_correct_answer_arrow_task == [
+        ] else np.average(decision_time_correct_answer_arrow_task)
+        Average_decision_time_wrong_answer_arrow_task = 0 if decision_time_wrong_answer_arrow_task == [
+        ] else np.average(decision_time_wrong_answer_arrow_task)
+        Average_decision_time_correct_answer_color_task = 0 if decision_time_correct_answer_color_task == [
+        ] else np.average(decision_time_correct_answer_color_task)
+        Average_decision_time_wrong_answer_color_task = 0 if decision_time_wrong_answer_color_task == [
+        ] else np.average(decision_time_wrong_answer_color_task)
         return Average_decision_time_correct_answer_arrow_task, Average_decision_time_wrong_answer_arrow_task, Average_decision_time_correct_answer_color_task, Average_decision_time_wrong_answer_color_task
 
     # create one table with averages of all participants
@@ -113,10 +118,12 @@ class FirstExamAnalysis:
             trails.append(trail)
             Averages_decision_time_for_correct_answer_in_arrow_task.append(
                 avg1)
-            Averages_decision_time_for_wrong_answer_in_arrow_task.append(avg2)
+            Averages_decision_time_for_wrong_answer_in_arrow_task.append(
+                avg2)
             Averages_decision_time_for_correct_answer_in_color_task.append(
                 avg3)
-            Averages_decision_time_for_wrong_answer_in_color_task.append(avg4)
+            Averages_decision_time_for_wrong_answer_in_color_task.append(
+                avg4)
         data = {"Name": names,
                 "Gender": genders,
                 "Right-handed?": handed,
@@ -158,6 +165,7 @@ class FirstExamAnalysis:
                     float(dict[i].get("Average decision time in a correct answer for arrow task")))
                 girls_correct_answer_for_color_task.append(
                     float(dict[i].get("Average decision time in a correct answer for color task")))
+
         boys_avg_correct_arrow = 0 if boys_correct_answer_for_arrow_task == [
         ] else np.average(boys_correct_answer_for_arrow_task)
         boys_avg_correct_color = 0 if boys_correct_answer_for_color_task == [
@@ -166,12 +174,13 @@ class FirstExamAnalysis:
         ] else np.average(girls_correct_answer_for_arrow_task)
         girls_avg_correct_color = 0 if girls_correct_answer_for_color_task == [
         ] else np.average(girls_correct_answer_for_color_task)
+
         boys_girls = [boys_avg_correct_arrow, boys_avg_correct_color,
                       girls_avg_correct_arrow, girls_avg_correct_color]
 
         # Right Left
         for j in range(len(dict)):
-            if (dict[j].get("Right-handed?") == "TRUE" or dict[j].get("Right-handed?") == "True"):
+            if (dict[j].get("Right-handed?") == "TRUE") or (dict[j].get("Right-handed?") == "True"):
                 right_handed_arrow.append(
                     float(dict[j].get("Average decision time in a correct answer for arrow task")))
                 right_handed_color.append(
@@ -181,6 +190,7 @@ class FirstExamAnalysis:
                     float(dict[j].get("Average decision time in a correct answer for arrow task")))
                 left_handed_color.append(
                     float(dict[j].get("Average decision time in a correct answer for color task")))
+
         right_handed_arrow_avg = 0 if right_handed_arrow == [
         ] else np.average(right_handed_arrow)
         right_handed_color_avg = 0 if right_handed_color == [
@@ -189,12 +199,13 @@ class FirstExamAnalysis:
         ] else np.average(left_handed_arrow)
         left_handed_color_avg = 0 if left_handed_color == [
         ] else np.average(left_handed_color)
+
         rightLeftHanded = [right_handed_arrow_avg, right_handed_color_avg,
                            left_handed_arrow_avg, left_handed_color_avg]
 
         # Ages
         for k in range(len(dict)):
-            if (dict[k].get("Age")) == "5.5" or (dict[k].get("Age")) == "5.6" or (dict[k].get("Age")) == "5.8" or (dict[k].get("Age")) == "5.9" or (dict[k].get("Age")) == "6":
+            if (dict[k].get("Age") == "5.5") or (dict[k].get("Age") == "5.6") or (dict[k].get("Age") == "5.8") or (dict[k].get("Age") == "5.9") or (dict[k].get("Age") == "6"):
                 five_six_arrow.append(
                     float(dict[k].get("Average decision time in a correct answer for arrow task")))
                 five_six_color.append(
@@ -209,6 +220,7 @@ class FirstExamAnalysis:
                     float(dict[k].get("Average decision time in a correct answer for arrow task")))
                 seven_ten_color.append(
                     float(dict[k].get("Average decision time in a correct answer for color task")))
+
         five_six_arrow_avg = 0 if five_six_arrow == [
         ] else np.average(five_six_arrow)
         five_six_color_avg = 0 if five_six_color == [
@@ -221,6 +233,7 @@ class FirstExamAnalysis:
         ] else np.average(seven_ten_arrow)
         seven_ten_color_avg = 0 if seven_ten_color == [
         ] else np.average(seven_ten_color)
+
         ages = [five_six_arrow_avg, five_six_color_avg, six_seven_arrow_avg,
                 six_seven_color_avg, seven_ten_arrow_avg, seven_ten_color_avg]
 
@@ -243,12 +256,11 @@ class FirstExamAnalysis:
         for i, j in dictA.items():
             temp1 = 0.25*mul
             temp2 = ax.bar(A_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3, fmt='%d')
+            ax.bar_label(temp2, padding=3)
             mul += 1
-        ax.set_ylabel('Average decision time in correct answer [ms]')
+        ax.set_ylabel('Average decision time in correct answer [s]')
         ax.set_title('Comparison between boys and girls')
         ax.set_xticks(A_axis + 0.25, A)
-        ax.set_yscale('log')
         ax.legend(loc='upper right', ncols=2)
         plt.show()
 
@@ -264,12 +276,11 @@ class FirstExamAnalysis:
         for i, j in dictB.items():
             temp1 = 0.25*mul
             temp2 = ax.bar(B_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3, fmt='%d')
+            ax.bar_label(temp2, padding=3)
             mul += 1
-        ax.set_ylabel('Average decision time in correct answer [ms]')
+        ax.set_ylabel('Average decision time in correct answer [s]')
         ax.set_title('Comparison between right-handed and left-handed')
         ax.set_xticks(B_axis + 0.25, B)
-        ax.set_yscale('log')
         ax.legend(loc='upper right', ncols=2)
         plt.show()
 
@@ -285,17 +296,16 @@ class FirstExamAnalysis:
         for i, j in dictC.items():
             temp1 = 0.25*mul
             temp2 = ax.bar(C_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3, fmt='%d')
+            ax.bar_label(temp2, padding=3)
             mul += 1
-        ax.set_ylabel('Average decision time in correct answer [ms]')
+        ax.set_ylabel('Average decision time in correct answer [s]')
         ax.set_title('Comparison between age ranges')
         ax.set_xticks(C_axis + 0.25, C)
-        ax.set_yscale('log')
         ax.legend(loc='upper right', ncols=2)
         plt.show()
 
 
 A = FirstExamAnalysis()
-print(A.create_table("assets/Data/first exam/"))
-print(A.personal_info("assets/Data/first exam/7601 yana09_11_19.csv"))
-# A.plot("First exam.csv")
+# print(A.calculate_data("assets/Data/first exam/10011 avigail grinberg10_45_07.csv"))
+A.create_table("assets/Data/first exam/")
+A.plot("First exam.csv")

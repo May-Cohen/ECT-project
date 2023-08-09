@@ -1,0 +1,13 @@
+,Tone,Cue_Location,Arrow_Location,Validity,Arrow_Direction,Arrow_Color,Congruency,Correct_Resp_Color_Inst,Correct_Resp_Arrow_Inst,Unnamed: 9,Unnamed: 10,Move Time[ms],Descision TIme[ms],X pos,Y pos,Is Green Right?,Current Time,Tester Name,Kindergarden Name,Is  Circle Right?,Name,KinderGarden Name,Age,Is Boy?,Is Right?
+71,1,down,up,0,left,green,0,right,left,,,-113524300,2926251900,144.0,448.0,,2021-07-06 11:32:13.690418,,,1.0,10096 ofir,,7,False,True
+90,1,down,down,1,right,red,0,left,right,,,-194020700,2503067200,1280.0,460.00000000000006,,2021-07-06 11:32:19.431304,,,1.0,10096 ofir,,7,False,True
+14,0,up,down,0,right,red,0,left,right,,,-182466100,1865145800,1301.0,431.00000000000006,,2021-07-06 11:32:24.495682,,,1.0,10096 ofir,,7,False,True
+25,0,up,up,1,right,green,1,right,right,,,-160213300,1694479800,1282.0,462.0,,2021-07-06 11:32:29.771413,,,1.0,10096 ofir,,7,False,True
+77,1,up,up,1,left,red,1,left,left,,,-157279800,1733302900,164.0,421.0,,2021-07-06 11:32:34.673786,,,1.0,10096 ofir,,7,False,True
+26,0,up,up,1,right,green,1,right,right,,,-143650000,1885490900,1276.0,439.0,,2021-07-06 11:32:40.155861,,,1.0,10096 ofir,,7,False,True
+22,0,down,up,0,left,green,0,right,left,,,-131576700,2399684100,177.00000000000003,441.99999999999994,,2021-07-06 11:32:46.107558,,,1.0,10096 ofir,,7,False,True
+7,0,down,up,0,right,green,1,right,right,,,-166732300,1505536400,1289.0,455.0,,2021-07-06 11:32:50.499477,,,1.0,10096 ofir,,7,False,True
+1,0,up,down,0,right,green,1,right,right,,,-180285600,1749874800,1273.0,453.0,,2021-07-06 11:32:55.394450,,,1.0,10096 ofir,,7,False,True
+66,1,down,up,0,right,red,0,left,right,,,-154925100,2006754600,1279.0,459.00000000000006,,2021-07-06 11:33:00.204076,,,1.0,10096 ofir,,7,False,True
+87,1,up,up,1,left,green,0,right,left,,,-61166100,1836196200,175.0,468.99999999999994,,2021-07-06 11:33:05.550571,,,1.0,10096 ofir,,7,False,True
+70,1,down,up,0,left,green,0,right,left,,,-101409000,1695362900,140.0,459.00000000000006,,2021-07-06 11:33:10.890376,,,1.0,10096 ofir,,7,False,True
