@@ -1,5 +1,4 @@
 ,Tone,Cue_Location,Arrow_Location,Validity,Arrow_Direction,Arrow_Color,Congruency,Correct_Resp_Color_Inst,Correct_Resp_Arrow_Inst,Unnamed: 9,Unnamed: 10,Move Time[ms],Descision TIme[ms],X pos,Y pos,Is Green Right?,Current Time,Tester Name,Kindergarden Name,Is  Circle Right?,Name,KinderGarden Name,Age,Is Boy?,Is Right?
-,0 הופיע צליל לפני הופעת החץ 1 לא הופיע,מיקום הרמז,מיקום החץ,,כיוון החץ,צבע החץ,,,,,,,כמה זמן לקח מהרגע שהחץ הופיע עד שהילד הרים את האצבע מהמסך,אם ערך ה x גדול מ 1000 השחקן לחץ על הלחצן הימני אחרת על הלחצן השמאלי,,,,,,אם = 1 אז הכפתור הירוק נמצא בצד ימין והאדום בשמאל אחרת ההפך,,,,,
 58,1,down,up,0,left,red,1,left,left,,,745718600,1922265100,191,479,,48:02.9,,,1,10095 roni,,7.5,FALSE,TRUE
 55,1,down,up,0,right,green,1,right,right,,,-144377600,1655474500,1275,455,,48:07.9,,,1,10095 roni,,7.5,FALSE,TRUE
 85,1,up,up,1,right,red,0,left,right,,,-36745200,2355766000,1258,442,,48:13.3,,,1,10095 roni,,7.5,FALSE,TRUE

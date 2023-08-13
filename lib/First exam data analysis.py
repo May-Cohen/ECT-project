@@ -251,17 +251,17 @@ class FirstExamAnalysis:
             "Color": [boys_girls[1], boys_girls[3]]
         }
         A_axis = np.arange(len(A))
-        mul = 0
-        fig, ax = plt.subplots(layout='constrained')
+        mul1 = 0
+        fig1, ax1 = plt.subplots(layout='constrained')
         for i, j in dictA.items():
-            temp1 = 0.25*mul
-            temp2 = ax.bar(A_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3)
-            mul += 1
-        ax.set_ylabel('Average decision time in correct answer [s]')
-        ax.set_title('Comparison between boys and girls')
-        ax.set_xticks(A_axis + 0.25, A)
-        ax.legend(loc='upper right', ncols=2)
+            temp1 = 0.25*mul1
+            temp2 = ax1.bar(A_axis+temp1, j, 0.25, label=i)
+            ax1.bar_label(temp2, padding=3)
+            mul1 += 1
+        ax1.set_ylabel('Average decision time in correct answer [s]')
+        ax1.set_title('Comparison between boys and girls')
+        ax1.set_xticks(A_axis + 0.25, A)
+        ax1.legend(loc='upper right', ncols=2)
         plt.show()
 
         # Right Left
@@ -271,17 +271,17 @@ class FirstExamAnalysis:
             "Color": [right_left[2], right_left[3]]
         }
         B_axis = np.arange(len(B))
-        mul = 0
-        fig, ax = plt.subplots(layout='constrained')
+        mul2 = 0
+        fig2, ax2 = plt.subplots(layout='constrained')
         for i, j in dictB.items():
-            temp1 = 0.25*mul
-            temp2 = ax.bar(B_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3)
-            mul += 1
-        ax.set_ylabel('Average decision time in correct answer [s]')
-        ax.set_title('Comparison between right-handed and left-handed')
-        ax.set_xticks(B_axis + 0.25, B)
-        ax.legend(loc='upper right', ncols=2)
+            temp1 = 0.25*mul2
+            temp2 = ax2.bar(B_axis+temp1, j, 0.25, label=i)
+            ax2.bar_label(temp2, padding=3)
+            mul2 += 1
+        ax2.set_ylabel('Average decision time in correct answer [s]')
+        ax2.set_title('Comparison between right-handed and left-handed')
+        ax2.set_xticks(B_axis + 0.25, B)
+        ax2.legend(loc='upper right', ncols=2)
         plt.show()
 
         # Ages
@@ -291,17 +291,17 @@ class FirstExamAnalysis:
             "Color": [ages[1], ages[3], ages[5]]
         }
         C_axis = np.arange(len(C))
-        mul = 0
-        fig, ax = plt.subplots(layout='constrained')
+        mul3 = 0
+        fig3, ax3 = plt.subplots(layout='constrained')
         for i, j in dictC.items():
-            temp1 = 0.25*mul
-            temp2 = ax.bar(C_axis+temp1, j, 0.25, label=i)
-            ax.bar_label(temp2, padding=3)
-            mul += 1
-        ax.set_ylabel('Average decision time in correct answer [s]')
-        ax.set_title('Comparison between age ranges')
-        ax.set_xticks(C_axis + 0.25, C)
-        ax.legend(loc='upper right', ncols=2)
+            temp1 = 0.25*mul3
+            temp2 = ax3.bar(C_axis+temp1, j, 0.25, label=i)
+            ax3.bar_label(temp2, padding=3)
+            mul3 += 1
+        ax3.set_ylabel('Average decision time in correct answer [s]')
+        ax3.set_title('Comparison between age ranges')
+        ax3.set_xticks(C_axis + 0.25, C)
+        ax3.legend(loc='upper right', ncols=2)
         plt.show()
 
 
