@@ -1,157 +1,37 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
-import 'Templates first version.dart';
-import 'Templates second version.dart';
 import 'package:flutter/foundation.dart';
-import 'globals.dart' as globals;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../View/End second test screen.dart';
+import '../View/Second Exam screen.dart';
+import '../View/Templates first version.dart';
+import '../View/Templates second version.dart';
+import 'package:project/Model/globals.dart' as globals;
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-    );
+updateValuesDouble1() {
+  globals.score2++;
+  globals.stopwatch.stop();
+  globals.time2 = globals.stopwatch.elapsed;
+  globals.rountimes.add(globals.time2);
+  if (globals.leftOrRight == 2) {
+    globals.numClickOnRight++;
+  }
+  print(globals.stopwatch.elapsed);
+  Get.offAll(const Double());
+  globals.numOfGames--;
+  if (globals.numOfGames == 0) {
+    globals.rountimes.add(globals.time2);
+    Get.offAll(const EndOfSecondTest());
   }
 }
 
-class Double extends StatefulWidget {
-  const Double({super.key});
-
-  @override
-  State<Double> createState() => _Double();
-}
-
-IconData icon = Icons.abc;
-final stopwatch = Stopwatch();
-
-class _Double extends State<Double> {
-  @override
-  void initState() {
-    super.initState();
-    stopwatch.reset();
-    stopwatch.start();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    globals.gamesTimes++;
-    List<List<IconData>> cards = chooseRandomCard();
-    List<IconData> cardA = cards[0];
-    List<IconData> cardB = cards[1];
-    icon = findSimilarIcon(cardA, cardB);
-    List<List<Positioned>> templates =
-        chooseTemplate(globals.version, cardA, cardB);
-    List<Positioned> templateA = templates[0];
-    List<Positioned> templateB = templates[1];
-    globals.leftOrRight = 0;
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/background2.png"),
-                fit: BoxFit.cover),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 100),
-              const Text(
-                " Please click on the only symbol on the left card that matches a symbol on the right card:",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Alkatra'),
-              ),
-              const SizedBox(height: 20),
-              Center(
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Container(
-                        height: 400,
-                        width: 400,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(500),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              offset: const Offset(
-                                7.0,
-                                7.0,
-                              ),
-                              blurRadius: 10.0,
-                            ),
-                          ],
-                        ),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            templateA[0],
-                            templateA[1],
-                            templateA[2],
-                            templateA[3],
-                            templateA[4],
-                            templateA[5],
-                            templateA[6],
-                            templateA[7],
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 400,
-                        width: 400,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(500),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              offset: const Offset(
-                                7.0,
-                                7.0,
-                              ),
-                              blurRadius: 10.0,
-                            ),
-                          ],
-                        ),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            templateB[0],
-                            templateB[1],
-                            templateB[2],
-                            templateB[3],
-                            templateB[4],
-                            templateB[5],
-                            templateB[6],
-                            templateB[7],
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                    ]),
-              ),
-            ],
-          ),
-        ));
+updateValuesDouble2() {
+  if (globals.numOfWrongAnswers2 > 0) {
+    globals.rountimes.add(globals.time2);
+    globals.numOfWrongAnswers2--;
+  } else {
+    globals.rountimes.add(globals.time2);
+    Get.offAll(const EndOfSecondTest());
   }
 }
 
@@ -386,3 +266,64 @@ IconData findSimilarIcon(List<IconData> a, List<IconData> b) {
   }
   return ans;
 }
+
+Map<IconData, Color> icons_color = {
+  Icons.umbrella: Colors.amber,
+  Icons.beach_access: Colors.black,
+  Icons.grade_outlined: Colors.pink,
+  Icons.alarm: Colors.red,
+  Icons.airplanemode_active_rounded: Colors.blue,
+  Icons.bedtime_rounded: Colors.brown,
+  Icons.sanitizer: Colors.purple,
+  Icons.favorite_border: Colors.cyan,
+  Icons.cloud: Colors.orange,
+  Icons.sunny: Colors.lime,
+  Icons.house: Colors.orangeAccent,
+  Icons.park: Colors.teal,
+  Icons.local_florist: Colors.grey,
+  Icons.stream: Colors.yellow,
+  Icons.tag_faces_sharp: Colors.indigo,
+  Icons.anchor_rounded: Colors.blueAccent,
+  Icons.bolt_sharp: Colors.blueGrey,
+  Icons.wine_bar_rounded: Colors.cyanAccent,
+  Icons.wb_incandescent_outlined: Colors.deepOrange,
+  Icons.watch_outlined: Colors.deepPurple,
+  Icons.vpn_key_outlined: Colors.deepPurpleAccent,
+  Icons.water_drop_outlined: Colors.green,
+  Icons.volume_up: Colors.greenAccent,
+  Icons.blender: Colors.lightBlue,
+  Icons.pets: Colors.lightGreen,
+  Icons.cruelty_free_outlined: Colors.lightGreenAccent,
+  Icons.agriculture: Colors.redAccent,
+  Icons.fire_truck: Colors.lime.shade900,
+  Icons.local_cafe: Colors.green.shade900,
+  Icons.golf_course: Colors.teal.shade900,
+  Icons.icecream_outlined: Colors.cyan.shade900,
+  Icons.fitness_center: Colors.lightBlue.shade900,
+  Icons.headphones: Colors.deepPurple.shade900,
+  Icons.grid_3x3: Colors.blueGrey.shade900,
+  Icons.battery_charging_full: Colors.brown.shade50,
+  Icons.sports_baseball: Colors.brown.shade300,
+  Icons.toys: Colors.grey.shade900,
+  Icons.pedal_bike: Colors.pink.shade100,
+  Icons.business_center: Colors.pink.shade200,
+  Icons.cut: Colors.pink.shade900,
+  Icons.point_of_sale: Colors.pinkAccent.shade700,
+  Icons.keyboard: Colors.red.shade600,
+  Icons.palette_outlined: Colors.lightBlue.shade100,
+  Icons.hourglass_bottom_sharp: Colors.lightBlue.shade200,
+  Icons.child_friendly: Colors.blueAccent.shade100,
+  Icons.ac_unit: Colors.indigo.shade50,
+  Icons.check_circle: Colors.purple.shade100,
+  Icons.format_paint: Colors.grey.shade800,
+  Icons.man: Colors.red.shade900,
+  Icons.air: Colors.redAccent.shade400,
+  Icons.castle_sharp: Colors.orange.shade800,
+  Icons.filter_vintage: Colors.amber.shade700,
+  Icons.attach_file: Colors.lime.shade700,
+  Icons.attractions_outlined: Colors.limeAccent.shade400,
+  Icons.sports: Colors.green.shade200,
+  Icons.shutter_speed_outlined: Colors.tealAccent.shade100,
+  Icons.checkroom: Colors.cyanAccent.shade400,
+  Icons.shower: Colors.indigo.shade300,
+};

@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
-class lights {
+class Lights {
   final bool isTurned = false;
 }
 
-class screenBuilding extends StatelessWidget {
+class ScreenBuilding extends StatelessWidget {
   final List<Widget> buttonsFirstRow;
   final List<Widget> buttonsSecondRowHalf1;
   final List<Widget> buttonsSecondRowHalf2;
@@ -14,7 +14,7 @@ class screenBuilding extends StatelessWidget {
   final double endPoint;
   final Widget? centerButton;
 
-  const screenBuilding(
+  const ScreenBuilding(
       {super.key,
       required this.buttonsFirstRow,
       required this.buttonsSecondRowHalf1,

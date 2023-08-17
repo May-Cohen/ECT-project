@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'First Exam.dart';
+import 'package:project/View/Second%20Exam%20screen.dart';
 
-class FirstExplanationPage extends StatefulWidget {
-  const FirstExplanationPage({super.key});
+class SecondExplanationPage extends StatefulWidget {
+  const SecondExplanationPage({super.key});
 
   @override
-  State<FirstExplanationPage> createState() => _FirstExplanationPage();
+  State<SecondExplanationPage> createState() => _SecondExplanationPage();
 }
 
-class _FirstExplanationPage extends State<FirstExplanationPage> {
+class _SecondExplanationPage extends State<SecondExplanationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +24,13 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 60),
+                  const SizedBox(height: 75),
                   const Text(
-                    "On the next screen, one of two shapes will be presented to you for a very short time:",
+                    "Next, you will be presented with two cards and will be required to click in the left card \n on the symbol that is common to both cards:",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w900,
-                        fontSize: 30,
+                        fontSize: 35,
                         fontFamily: 'Alkatra'),
                   ),
                   const SizedBox(height: 30),
@@ -41,72 +41,26 @@ class _FirstExplanationPage extends State<FirstExplanationPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(
-                        height: 110,
-                        child: Image.asset('assets/images/leftEx.png'),
+                        height: 400,
+                        child: Image.asset('assets/images/DoubleEx1.png'),
                       ),
-                      const SizedBox(
-                        width: 300,
-                      ),
+                      const SizedBox(width: 40),
                       SizedBox(
-                        height: 110,
-                        child: Image.asset('assets/images/rightEx.png'),
+                        height: 400,
+                        child: Image.asset('assets/images/DoubleEx2.png'),
                       ),
                     ],
                   )),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      SizedBox(width: 400),
-                      Text(
-                        "Left side",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 30,
-                            fontFamily: 'Alkatra'),
-                      ),
-                      SizedBox(width: 270),
-                      Text(
-                        "Right side",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 30,
-                            fontFamily: 'Alkatra'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 25),
-                  const Text(
-                    "After this time the shape will change into this shape:",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 30,
-                        fontFamily: 'Alkatra'),
-                  ),
                   const SizedBox(height: 30),
-                  SizedBox(
-                    height: 100,
-                    child: Image.asset('assets/images/FullShape.png'),
-                  ),
-                  const SizedBox(height: 40),
-                  const Text(
-                    "You will need to choose what was the side of the shape before it changed.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 30,
-                        fontFamily: 'Alkatra'),
-                  ),
-                  const SizedBox(height: 40),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Sides()),
+                        MaterialPageRoute(builder: (context) => const Double()),
                       );
                     },
                     child: Container(
-                      height: 60,
+                      height: 50,
                       width: 200,
                       decoration: BoxDecoration(
                         color: Colors.blue[300]?.withOpacity(0.8),

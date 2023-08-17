@@ -133,7 +133,7 @@ class FirstExamAnalysis:
                 "Average decision time in a correct answer for color task": Averages_decision_time_for_correct_answer_in_color_task,
                 "Average decision time in a wrong answer for color task": Averages_decision_time_for_wrong_answer_in_color_task}
         Df = pd.DataFrame(data)
-        Df.to_csv("First exam.csv")
+        Df.to_csv("assets/Data/First exam.csv")
         return np.average(trails)
 
     def analyze_data(self, fileName):
@@ -307,5 +307,5 @@ class FirstExamAnalysis:
 
 A = FirstExamAnalysis()
 # print(A.calculate_data("assets/Data/first exam/10011 avigail grinberg10_45_07.csv"))
-A.create_table("assets/Data/first exam/")
-A.plot("First exam.csv")
+print(A.create_table("assets/Data/first exam/"))
+# A.plot("assets/Data/First exam.csv")

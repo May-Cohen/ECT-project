@@ -1,22 +1,5 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'globals.dart' as globals;
-
-double show1 = 0;
-String show2 = '';
-String show3 = '';
-String show4 = '';
-String show5 = '';
-String show6 = '';
-String show7 = '';
-double drop1 = 60.0;
-int drop2 = 2;
-int drop3 = 5;
-int drop4 = 1;
-int drop5 = 1;
-int drop6 = 5;
+import '../Model/globals.dart' as globals;
 
 class SettingBar extends StatefulWidget {
   const SettingBar({super.key});
@@ -58,7 +41,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<double>(
-                      value: drop1,
+                      value: globals.drop1,
                       items: <double>[80, 75, 70, 65, 60, 55, 50]
                           .map((double value1) {
                         return DropdownMenuItem<double>(
@@ -74,7 +57,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value1) {
                         setState(() {
-                          drop1 = value1!;
+                          globals.drop1 = value1!;
                         });
                       },
                     ),
@@ -94,7 +77,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<int>(
-                      value: drop2,
+                      value: globals.drop2,
                       items: <int>[5, 4, 3, 2, 1].map((int value2) {
                         return DropdownMenuItem<int>(
                           value: value2,
@@ -109,7 +92,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value2) {
                         setState(() {
-                          drop2 = value2!;
+                          globals.drop2 = value2!;
                         });
                       },
                     ),
@@ -142,7 +125,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<int>(
-                      value: drop3,
+                      value: globals.drop3,
                       items: <int>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
                           .map((int value3) {
                         return DropdownMenuItem<int>(
@@ -158,7 +141,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value3) {
                         setState(() {
-                          drop3 = value3!;
+                          globals.drop3 = value3!;
                         });
                       },
                     ),
@@ -178,7 +161,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<int>(
-                      value: drop4,
+                      value: globals.drop4,
                       items: <int>[5, 4, 3, 2, 1].map((int value4) {
                         return DropdownMenuItem<int>(
                           value: value4,
@@ -193,7 +176,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value4) {
                         setState(() {
-                          drop4 = value4!;
+                          globals.drop4 = value4!;
                         });
                       },
                     ),
@@ -213,7 +196,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<int>(
-                      value: drop5,
+                      value: globals.drop5,
                       items: <int>[1, 2].map((int value5) {
                         return DropdownMenuItem<int>(
                           value: value5,
@@ -228,7 +211,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value5) {
                         setState(() {
-                          drop5 = value5!;
+                          globals.drop5 = value5!;
                         });
                       },
                     ),
@@ -261,7 +244,7 @@ class _SettingBar extends State<SettingBar> {
                 children: [
                   SizedBox(
                     child: DropdownButton<int>(
-                      value: drop6,
+                      value: globals.drop6,
                       items: <int>[1, 2, 3, 4, 5].map((int value6) {
                         return DropdownMenuItem<int>(
                           value: value6,
@@ -276,7 +259,7 @@ class _SettingBar extends State<SettingBar> {
                       }).toList(),
                       onChanged: (value6) {
                         setState(() {
-                          drop6 = value6!;
+                          globals.drop6 = value6!;
                         });
                       },
                     ),
@@ -293,13 +276,13 @@ class _SettingBar extends State<SettingBar> {
             width: 55,
             child: TextButton(
               onPressed: () {
-                globals.time1 = drop1;
-                globals.init = drop1;
-                globals.numOfWrongAnswers1 = drop2;
-                globals.numOfGames = drop3;
-                globals.numOfWrongAnswers2 = drop4;
-                globals.version = drop5;
-                globals.GameNumber = drop6;
+                globals.time1 = globals.drop1;
+                globals.init = globals.drop1;
+                globals.numOfWrongAnswers1 = globals.drop2;
+                globals.numOfGames = globals.drop3;
+                globals.numOfWrongAnswers2 = globals.drop4;
+                globals.version = globals.drop5;
+                globals.GameNumber = globals.drop6;
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "529992144983",
+    "project_id": "ect-project-188c8",
+    "storage_bucket": "ect-project-188c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529992144983:android:0059641fbe255497db6b12",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529992144983-grr1i3p3ge55mevvhhh73gitimdpdegs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyNcipBM2rznNsrHCbON6nLXc5HQwYzKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529992144983-grr1i3p3ge55mevvhhh73gitimdpdegs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "529992144983-l39drpctidk95vqtlb1bgj3799nchtek.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

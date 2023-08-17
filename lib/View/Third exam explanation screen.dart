@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Second%20Exam.dart';
-import 'package:project/Third%20Exam.dart';
+import 'package:project/View/Third%20Exam%20screen.dart';
 
 class ThirdExplanationPage extends StatefulWidget {
   const ThirdExplanationPage({super.key});

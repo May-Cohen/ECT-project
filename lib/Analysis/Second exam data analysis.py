@@ -12,7 +12,7 @@ import re
 import pprint
 
 
-class ThirdExamAnalysis:
+class SecondExamAnalysis:
 
     # create list of the files names
     def file_names(self, folder):
@@ -45,7 +45,7 @@ class ThirdExamAnalysis:
             num_of_trails.append(float(dict[i].get("Tone")))
             if (float(dict[i].get("Descision TIme[ms]")) < 0):
                 num_of_negative_trails = num_of_negative_trails+1
-        return name, gender, right_handed, age, max(num_of_trails)-num_of_negative_trails
+        return name, gender, right_handed, age, ((len(num_of_trails))-num_of_negative_trails)
 
     # calculate data for one file of one participant
     def calculate_data(self, file: str):
@@ -56,13 +56,15 @@ class ThirdExamAnalysis:
         decision_time_correct_answer_tune_flower_not_appeared = []
 
         for i in range(len(dict)):
-            arrow_direction = dict[i].get("Arrow_Direction")
+            arrow_color = dict[i].get("Arrow_Color")
             choice_side = "left" if float(
                 dict[i].get("X pos")) < 1000 else "right"
+            green_color_side = "right" if dict[i].get(
+                "Is  Circle Right?") == "1" else "left"
 
             # above star
             if dict[i].get("Arrow_Location") == "up":
-                if (arrow_direction == "right" and choice_side == "right") or (arrow_direction == "left" and choice_side == "left"):
+                if (arrow_color == "green" and choice_side == "right" and green_color_side == "right") or (arrow_color == "green" and choice_side == "left" and green_color_side == "left") or (arrow_color == "red" and choice_side == "left" and green_color_side == "right") or (arrow_color == "red" and choice_side == "right" and green_color_side == "left"):
                     if float(dict[i].get("Descision TIme[ms]")) > 0 and (float(dict[i].get("Descision TIme[ms]"))) < 999999999999999999:
                         decision_time_correct_answer_arrow_above_star.append(
                             float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
@@ -73,7 +75,7 @@ class ThirdExamAnalysis:
 
             # tune \ flower
             if dict[i].get("Tone") == "1":
-                if (arrow_direction == "right" and choice_side == "right") or (arrow_direction == "left" and choice_side == "left"):
+                if (arrow_color == "green" and choice_side == "right" and green_color_side == "right") or (arrow_color == "green" and choice_side == "left" and green_color_side == "left") or (arrow_color == "red" and choice_side == "left" and green_color_side == "right") or (arrow_color == "red" and choice_side == "right" and green_color_side == "left"):
                     if float(dict[i].get("Descision TIme[ms]")) > 0 and (float(dict[i].get("Descision TIme[ms]"))) < 999999999999999999:
                         decision_time_correct_answer_tune_flower_appeared.append(
                             float(dict[i].get("Descision TIme[ms]"))*(1.0*(10**-9)))
@@ -126,7 +128,7 @@ class ThirdExamAnalysis:
                 "Average decision time in a correct answer when a tune or flower appeared before the arrow": Averages_decision_time_for_correct_answer_appeared,
                 "Average decision time in a correct answer when a tune or flower not appeared before the arrow": Averages_decision_time_for_wrong_answer_not_appeared}
         Df = pd.DataFrame(data)
-        Df.to_csv("Third exam.csv")
+        Df.to_csv("assets/Data/Second exam.csv")
         return np.average(trails)
 
     def analyze_data(self, fileName):
@@ -152,18 +154,22 @@ class ThirdExamAnalysis:
         five_six_correct_answer_arrow_above_star = []
         six_seven_correct_answer_arrow_above_star = []
         seven_eight_correct_answer_arrow_above_star = []
+        twenty_correct_answer_arrow_above_star = []
 
         five_six_correct_answer_arrow_below_star = []
         six_seven_correct_answer_arrow_below_star = []
         seven_eight_correct_answer_arrow_below_star = []
+        twenty_correct_answer_arrow_below_star = []
 
         five_six_correct_answer_tune_flower_appeared = []
         six_seven_correct_answer_tune_flower_appeared = []
         seven_eight_correct_answer_tune_flower_appeared = []
+        twenty_correct_answer_tune_flower_appeared = []
 
         five_six_correct_answer_tune_flower_not_appeared = []
         six_seven_correct_answer_tune_flower_not_appeared = []
         seven_eight_correct_answer_tune_flower_not_appeared = []
+        twenty_correct_answer_tune_flower_not_appeared = []
 
         # Boys Girls
         for i in range(len(dict)):
@@ -249,7 +255,7 @@ class ThirdExamAnalysis:
                            left_avg_above_arrow, left_avg_below_arrow, left_avg_appeared, left_avg_not_appeared]
         # Ages
         for k in range(len(dict)):
-            if (dict[k].get("Age") == "5.1") or (dict[k].get("Age") == "5.11") or (dict[k].get("Age") == "5.5") or (dict[k].get("Age") == "5.6") or (dict[k].get("Age") == "5.7") or (dict[k].get("Age") == "5.8") or (dict[k].get("Age") == "5.9") or (dict[k].get("Age") == "6"):
+            if (dict[k].get("Age") == "5.5") or (dict[k].get("Age") == "5.6") or (dict[k].get("Age") == "5.8") or (dict[k].get("Age") == "5.9") or (dict[k].get("Age") == "6"):
                 five_six_correct_answer_arrow_above_star.append(
                     float(dict[k].get("Average decision time in a correct answer when the arrow was above the star")))
                 five_six_correct_answer_arrow_below_star.append(
@@ -258,7 +264,7 @@ class ThirdExamAnalysis:
                     float(dict[k].get("Average decision time in a correct answer when a tune or flower appeared before the arrow")))
                 five_six_correct_answer_tune_flower_not_appeared.append(
                     float(dict[k].get("Average decision time in a correct answer when a tune or flower not appeared before the arrow")))
-            if (dict[k].get("Age")) == "6.1" or (dict[k].get("Age")) == "6.2" or (dict[k].get("Age")) == "6.3" or (dict[k].get("Age")) == "6.4" or (dict[k].get("Age")) == "6.5" or (dict[k].get("Age")) == "6.6" or (dict[k].get("Age")) == "6.8" or (dict[k].get("Age")) == "7":
+            if (dict[k].get("Age")) == "6.1" or (dict[k].get("Age")) == "6.11" or (dict[k].get("Age")) == "6.2" or (dict[k].get("Age")) == "6.3" or (dict[k].get("Age")) == "6.4" or (dict[k].get("Age")) == "6.5" or (dict[k].get("Age")) == "6.6" or (dict[k].get("Age")) == "6.7" or (dict[k].get("Age")) == "7":
                 six_seven_correct_answer_arrow_above_star.append(
                     float(dict[k].get("Average decision time in a correct answer when the arrow was above the star")))
                 six_seven_correct_answer_arrow_below_star.append(
@@ -276,6 +282,15 @@ class ThirdExamAnalysis:
                     float(dict[k].get("Average decision time in a correct answer when a tune or flower appeared before the arrow")))
                 seven_eight_correct_answer_tune_flower_not_appeared.append(
                     float(dict[k].get("Average decision time in a correct answer when a tune or flower not appeared before the arrow")))
+            if (dict[k].get("Age")) == "26" or (dict[k].get("Age")) == "27":
+                twenty_correct_answer_arrow_above_star.append(
+                    float(dict[k].get("Average decision time in a correct answer when the arrow was above the star")))
+                twenty_correct_answer_arrow_below_star.append(
+                    float(dict[k].get("Average decision time in a correct answer when the arrow was below the star")))
+                twenty_correct_answer_tune_flower_appeared.append(
+                    float(dict[k].get("Average decision time in a correct answer when a tune or flower appeared before the arrow")))
+                twenty_correct_answer_tune_flower_not_appeared.append(
+                    float(dict[k].get("Average decision time in a correct answer when a tune or flower not appeared before the arrow")))
 
         five_six_correct_answer_arrow_above_star_avg = 0 if five_six_correct_answer_arrow_above_star == [
         ] else np.average(five_six_correct_answer_arrow_above_star)
@@ -283,6 +298,8 @@ class ThirdExamAnalysis:
         ] else np.average(six_seven_correct_answer_arrow_above_star)
         seven_eight_correct_answer_arrow_above_star_avg = 0 if seven_eight_correct_answer_arrow_above_star == 0 else np.average(
             seven_eight_correct_answer_arrow_above_star)
+        twenty_correct_answer_arrow_above_star_avg = 0 if twenty_correct_answer_arrow_above_star == [
+        ] else np.average(twenty_correct_answer_arrow_above_star)
 
         five_six_correct_answer_arrow_below_star_avg = 0 if five_six_correct_answer_arrow_below_star == [
         ] else np.average(five_six_correct_answer_arrow_below_star)
@@ -290,6 +307,8 @@ class ThirdExamAnalysis:
         ] else np.average(six_seven_correct_answer_arrow_below_star)
         seven_eight_correct_answer_arrow_below_star_avg = 0 if seven_eight_correct_answer_arrow_below_star == [
         ] else np.average(seven_eight_correct_answer_arrow_below_star)
+        twenty_correct_answer_arrow_below_star_avg = 0 if twenty_correct_answer_arrow_below_star == [
+        ] else np.average(twenty_correct_answer_arrow_below_star)
 
         five_six_correct_answer_tune_flower_appeared_avg = 0 if five_six_correct_answer_tune_flower_appeared == [
         ] else np.average(five_six_correct_answer_tune_flower_appeared)
@@ -297,6 +316,8 @@ class ThirdExamAnalysis:
         ] else np.average(six_seven_correct_answer_tune_flower_appeared)
         seven_eight_correct_answer_tune_flower_appeared_avg = 0 if seven_eight_correct_answer_tune_flower_appeared == [
         ] else np.average(seven_eight_correct_answer_tune_flower_appeared)
+        twenty_correct_answer_tune_flower_appeared_avg = 0 if twenty_correct_answer_tune_flower_appeared == [
+        ] else np.average(twenty_correct_answer_tune_flower_appeared)
 
         five_six_correct_answer_tune_flower_not_appeared_avg = 0 if five_six_correct_answer_tune_flower_not_appeared == [
         ] else np.average(five_six_correct_answer_tune_flower_not_appeared)
@@ -304,10 +325,13 @@ class ThirdExamAnalysis:
         ] else np.average(six_seven_correct_answer_tune_flower_not_appeared)
         seven_eight_correct_answer_tune_flower_not_appeared_avg = 0 if seven_eight_correct_answer_tune_flower_not_appeared == [
         ] else np.average(seven_eight_correct_answer_tune_flower_not_appeared)
+        twenty_correct_answer_tune_flower_not_appeared_avg = 0 if twenty_correct_answer_tune_flower_not_appeared == [
+        ] else np.average(twenty_correct_answer_tune_flower_not_appeared)
 
         ages = [five_six_correct_answer_arrow_above_star_avg, five_six_correct_answer_arrow_below_star_avg, five_six_correct_answer_tune_flower_appeared_avg, five_six_correct_answer_tune_flower_not_appeared_avg,
                 six_seven_correct_answer_arrow_above_star_avg, six_seven_correct_answer_arrow_below_star_avg, six_seven_correct_answer_tune_flower_appeared_avg, six_seven_correct_answer_tune_flower_not_appeared_avg,
                 seven_eight_correct_answer_arrow_above_star_avg, seven_eight_correct_answer_arrow_below_star_avg, seven_eight_correct_answer_tune_flower_appeared_avg, seven_eight_correct_answer_tune_flower_not_appeared_avg,
+                twenty_correct_answer_arrow_above_star_avg, twenty_correct_answer_arrow_below_star_avg, twenty_correct_answer_tune_flower_appeared_avg, twenty_correct_answer_tune_flower_not_appeared_avg
                 ]
 
         return boys_girls, rightLeftHanded, ages
@@ -401,10 +425,11 @@ class ThirdExamAnalysis:
         plt.show()
 
         # Ages below above
-        C1 = ['5-6 years old', '6-7 years old', '7-8 years old']
+        C1 = ['5-6 years old', '6-7 years old',
+              '7-8 years old', '20 - 30 years old']
         dictC1 = {
-            "Above star": [ages[0], ages[4], ages[8]],
-            "Below star": [ages[1], ages[5], ages[9]]
+            "Above star": [ages[0], ages[4], ages[8], ages[12]],
+            "Below star": [ages[1], ages[5], ages[9], ages[13]]
         }
         C1_axis = np.arange(len(C1))
         mul5 = 0
@@ -421,10 +446,11 @@ class ThirdExamAnalysis:
         plt.show()
 
         # Ages appeared not appeared
-        C2 = ['5-6 years old', '6-7 years old', '7-8 years old']
+        C2 = ['5-6 years old', '6-7 years old',
+              '7-8 years old', '20 - 30 years old']
         dictC2 = {
-            "Tone \ flower appeared": [ages[2], ages[6], ages[10]],
-            "Tone \ flower not appeared": [ages[3], ages[7], ages[11]]
+            "Tone \ flower appeared": [ages[2], ages[6], ages[10], ages[14]],
+            "Tone \ flower not appeared": [ages[3], ages[7], ages[11], ages[15]]
         }
         C2_axis = np.arange(len(C2))
         mul6 = 0
@@ -441,6 +467,7 @@ class ThirdExamAnalysis:
         plt.show()
 
 
-A = ThirdExamAnalysis()
-A.create_table("assets/Data/third exam/")
-A.plot("Second exam.csv")
+A = SecondExamAnalysis()
+# print(A.calculate_data("assets/Data/second exam/7597 emili09_44_53_test2.csv"))
+print(A.create_table("assets/Data/second exam/"))
+# A.plot("assets/Data/Second exam.csv")

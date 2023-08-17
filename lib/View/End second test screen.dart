@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Second exam explanation page.dart';
+import 'package:project/View/Third%20exam%20explanation%20screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class EndOfTest extends StatefulWidget {
-  const EndOfTest({super.key});
+class EndOfSecondTest extends StatefulWidget {
+  const EndOfSecondTest({super.key});
 
   @override
-  State<EndOfTest> createState() => _EndOfTest();
+  State<EndOfSecondTest> createState() => _EndOfSecondTest();
 }
 
-class _EndOfTest extends State<EndOfTest> {
+class _EndOfSecondTest extends State<EndOfSecondTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class _EndOfTest extends State<EndOfTest> {
                 const SizedBox(height: 300),
                 const Center(
                   child: Text(
-                    "You finished the first part",
+                    "You finished the second part",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
@@ -57,7 +57,7 @@ class _EndOfTest extends State<EndOfTest> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SecondExplanationPage()),
+                          builder: (context) => const ThirdExplanationPage()),
                     );
                   },
                   child: Container(
@@ -89,7 +89,7 @@ class _EndOfTest extends State<EndOfTest> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             )));
   }

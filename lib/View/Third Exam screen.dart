@@ -1,9 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:project/End%20third%20test.dart';
-import 'Screen building third test.dart';
-import 'globals.dart' as globals;
+import 'package:project/View/End%20third%20test%20screen.dart';
+import 'package:project/View/Screen building third test.dart';
+import 'package:project/Model/globals.dart' as globals;
+import 'package:project/Controller/Third Exam funcs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,18 +27,18 @@ class LBulb extends StatefulWidget {
   State<LBulb> createState() => _LBulb();
 }
 
-final stopwatchD = Stopwatch();
-final stopwatchR = Stopwatch();
-bool chosen1 = false;
-bool chosen2 = false;
-bool chosen3 = false;
-bool chosen4 = false;
-bool chosen5 = false;
-bool chosen6 = false;
-bool chosen7 = false;
-bool chosen8 = false;
-int ver = 0;
-int tempIndex = 0;
+// final stopwatchD = Stopwatch();
+// final stopwatchR = Stopwatch();
+// bool chosen1 = false;
+// bool chosen2 = false;
+// bool chosen3 = false;
+// bool chosen4 = false;
+// bool chosen5 = false;
+// bool chosen6 = false;
+// bool chosen7 = false;
+// bool chosen8 = false;
+// int ver = 0;
+// int tempIndex = 0;
 
 class _LBulb extends State<LBulb> {
   @override
@@ -90,7 +90,7 @@ class _LBulb extends State<LBulb> {
                     ),
                   ],
                 ),
-                child: screenBuilding(
+                child: ScreenBuilding(
                   distance: 310.0,
                   // Center button
                   centerButton: TextButton(
@@ -113,68 +113,71 @@ class _LBulb extends State<LBulb> {
                                     builder: (context) =>
                                         const EndOfThirdTest()));
                           }
-                          ver = oneOrThree();
-                          globals.lightsIndex = randomLights(ver);
+                          globals.ver = oneOrThree();
+                          globals.lightsIndex = randomLights(globals.ver);
                           print(globals.lightsIndex);
                           // mark the lights that needs to be turned
                           setState(() {
-                            for (int i = 0;
-                                i < globals.lightsIndex.length;
-                                i++) {
-                              if (globals.lightsIndex[i] == 1) {
-                                chosen1 = true;
-                              }
-                              if (globals.lightsIndex[i] == 2) {
-                                chosen2 = true;
-                              }
-                              if (globals.lightsIndex[i] == 3) {
-                                chosen3 = true;
-                              }
-                              if (globals.lightsIndex[i] == 4) {
-                                chosen4 = true;
-                              }
-                              if (globals.lightsIndex[i] == 5) {
-                                chosen8 = true;
-                              }
-                              if (globals.lightsIndex[i] == 6) {
-                                chosen7 = true;
-                              }
-                              if (globals.lightsIndex[i] == 7) {
-                                chosen6 = true;
-                              }
-                              if (globals.lightsIndex[i] == 8) {
-                                chosen5 = true;
-                              }
-                            }
+                            markLights();
+                            // for (int i = 0;
+                            //     i < globals.lightsIndex.length;
+                            //     i++) {
+                            //   if (globals.lightsIndex[i] == 1) {
+                            //     globals.chosen1 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 2) {
+                            //     globals.chosen2 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 3) {
+                            //     globals.chosen3 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 4) {
+                            //     globals.chosen4 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 5) {
+                            //     globals.chosen8 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 6) {
+                            //     globals.chosen7 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 7) {
+                            //     globals.chosen6 = true;
+                            //   }
+                            //   if (globals.lightsIndex[i] == 8) {
+                            //     globals.chosen5 = true;
+                            //   }
+                            // }
                           });
                           // start the detection timer
-                          stopwatchD.start();
+                          globals.stopwatchD.start();
                         },
                         // when the player release the button
                         onTapUp: (details) {
                           // turn off the lights
                           setState(() {
-                            chosen1 = false;
-                            chosen2 = false;
-                            chosen3 = false;
-                            chosen4 = false;
-                            chosen5 = false;
-                            chosen6 = false;
-                            chosen7 = false;
-                            chosen8 = false;
+                            turnOffLights();
+                            // globals.chosen1 = false;
+                            // globals.chosen2 = false;
+                            // globals.chosen3 = false;
+                            // globals.chosen4 = false;
+                            // globals.chosen5 = false;
+                            // globals.chosen6 = false;
+                            // globals.chosen7 = false;
+                            // globals.chosen8 = false;
                           });
-                          // save the time of the detection time
-                          stopwatchD.stop();
-                          globals.detectionTime = stopwatchD.elapsed;
-                          globals.detectionTimes[globals.numOfTurn] =
-                              globals.detectionTime;
-                          // reset the values
-                          stopwatchD.reset();
-                          globals.detectionTime = const Duration(seconds: 0);
-                          globals.numOfTurn++;
-                          print(globals.detectionTimes);
-                          // update lights
-                          stopwatchR.start();
+                          updateValues();
+                          // // save the time of the detection time
+                          // globals.stopwatchD.stop();
+                          // globals.detectionTime = globals.stopwatchD.elapsed;
+                          // globals.detectionTimes[globals.numOfTurn] =
+                          //     globals.detectionTime;
+                          // // reset the values
+                          // globals.stopwatchD.reset();
+                          // globals.detectionTime = const Duration(seconds: 0);
+                          // globals.numOfTurn++;
+                          // print(globals.detectionTimes);
+                          // // update lights
+                          // globals.stopwatchR.start();
                         },
                       ),
                     ),
@@ -183,8 +186,8 @@ class _LBulb extends State<LBulb> {
                   buttonsFirstRow: [
                     TextButton(
                       onPressed: () {
-                        tempIndex = 1;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 1;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -196,8 +199,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 2;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 2;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -209,8 +212,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 3;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 3;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -222,8 +225,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 4;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 4;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -235,8 +238,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 5;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 5;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -248,8 +251,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 6;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 6;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -261,8 +264,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 7;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 7;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -274,8 +277,8 @@ class _LBulb extends State<LBulb> {
                     ),
                     TextButton(
                       onPressed: () {
-                        tempIndex = 8;
-                        checkTheAnswer(tempIndex);
+                        globals.tempIndex = 8;
+                        checkTheAnswer(globals.tempIndex);
                       },
                       child: Container(
                         height: 20,
@@ -294,8 +297,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen1 == true ? Colors.green : Colors.white,
+                            color: globals.chosen1 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -306,8 +310,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen2 == true ? Colors.green : Colors.white,
+                            color: globals.chosen2 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -318,8 +323,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen3 == true ? Colors.green : Colors.white,
+                            color: globals.chosen3 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -330,8 +336,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen4 == true ? Colors.green : Colors.white,
+                            color: globals.chosen4 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -345,8 +352,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen5 == true ? Colors.green : Colors.white,
+                            color: globals.chosen5 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -357,8 +365,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen6 == true ? Colors.green : Colors.white,
+                            color: globals.chosen6 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -369,8 +378,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen7 == true ? Colors.green : Colors.white,
+                            color: globals.chosen7 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -381,8 +391,9 @@ class _LBulb extends State<LBulb> {
                         height: 20,
                         width: 20,
                         decoration: BoxDecoration(
-                            color:
-                                chosen8 == true ? Colors.green : Colors.white,
+                            color: globals.chosen8 == true
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(500),
                             border: Border.all(width: 3)),
                       ),
@@ -395,81 +406,5 @@ class _LBulb extends State<LBulb> {
         ),
       ),
     );
-  }
-
-  int oneOrThree() {
-    final rand = Random();
-    List<int> a = [1, 3];
-    return a[rand.nextInt(a.length)];
-  }
-
-  List<int> randomLights(int ver) {
-    final rand = Random();
-    List<int> a = [1, 2, 3, 4, 5, 6, 7, 8];
-    List<int> ans = [];
-    if (ver == 1) {
-      int temp = a[rand.nextInt(a.length)];
-      ans.add(temp);
-    } else {
-      int temp1 = a[rand.nextInt(a.length)];
-      a.remove(temp1);
-      ans.add(temp1);
-      int temp2 = a[rand.nextInt(a.length)];
-      a.remove(temp2);
-      ans.add(temp2);
-      int temp3 = a[rand.nextInt(a.length)];
-      ans.add(temp3);
-    }
-    return ans;
-  }
-
-  checkTheAnswer(int a) {
-    // only one light
-    if (globals.lightsIndex.length == 1) {
-      if (globals.lightsIndex[0] == a) {
-        print("you are right");
-        globals.score3++;
-      }
-    } else {
-      // Three lights
-      int ans = 0;
-      int b = globals.lightsIndex[0];
-      int c = globals.lightsIndex[1];
-      int d = globals.lightsIndex[2];
-      int tempMax = max(b, c);
-      int maxIndex = max(tempMax, d);
-
-      // Three adjacent lights - the answer will be the rightmost light
-      if ((b - c).abs() == 1 && (b - d).abs() == 1 && (c - d).abs() == 1) {
-        ans = maxIndex;
-      }
-
-      // Two adjacent lights and one distant
-      if ((b - d).abs() != 1 && (c - d).abs() != 1 && (b - c).abs() == 1) {
-        //bc \ cb adjacent
-        ans = d;
-      }
-      if ((b - c).abs() != 1 && (b - d).abs() != 1 && (c - d).abs() == 1) {
-        //cd \ dc adjacent
-        ans = b;
-      }
-      if ((b - c).abs() != 1 && (c - d).abs() != 1 && (b - d).abs() == 1) {
-        //bd \ db adjacent
-        ans = c;
-      }
-
-      // Three remote lights - the answer will be the rightmost light
-      if ((b - c).abs() != 1 && (b - d).abs() != 1 && (c - d).abs() != 1) {
-        ans = maxIndex;
-      }
-
-      // check the correctness of the choice
-      if (ans == a) {
-        print("you are right");
-        globals.score3++;
-      } else {
-        print("you are wrong");
-      }
-    }
   }
 }

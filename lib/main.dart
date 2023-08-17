@@ -1,10 +1,14 @@
-// ignore_for_file: use_function_type_syntax_for_parameters
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'Login page.dart';
+import 'View/Login screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:project/firebase_options.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
