@@ -442,5 +442,5 @@ class ThirdExamAnalysis:
 
 
 A = ThirdExamAnalysis()
-A.create_table("assets/Data/third exam/")
-A.plot("assets/Data/Third exam.csv")
+print(A.create_table("assets/Data/third exam/"))
+# A.plot("assets/Data/Third exam.csv")

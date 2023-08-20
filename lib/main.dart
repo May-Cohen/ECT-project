@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'View/Login screen.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:project/firebase_options.dart';
 
-Future<void> main() async {
+main() {
   runApp(const MyApp());
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
 
 class MyApp extends StatelessWidget {

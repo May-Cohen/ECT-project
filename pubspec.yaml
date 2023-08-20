@@ -84,6 +84,10 @@ flutter:
     - assets/images/FirstExam.png
     - assets/images/SecondExam.png
     - assets/images/ThirdExam.png
+    - assets/images/folder.png
+    - assets/images/graph1.png
+    - assets/images/graph2.png
+    - assets/images/graph3.png
 
   fonts:
     - family: Dosis
